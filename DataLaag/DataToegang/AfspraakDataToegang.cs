@@ -23,7 +23,7 @@ namespace DataLaag.DataToegang
 
         public List<AfspraakDTO> AlleAfsprakenOphalen()
         {
-            List<DetailerDTO> lijstVanDetailers = new List<DetailerDTO>();
+            List<AfspraakDTO> lijstVanAfspraken = new List<AfspraakDTO>();
             string query = "SELECT * FROM detailer";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
@@ -38,12 +38,12 @@ namespace DataLaag.DataToegang
                             DetailerID = reader.GetInt32(0),
                             Naam = reader.GetString(1),
                         };
-                        lijstVanDetailers.Add(detailer);
+                        lijstVanAfspraken.Add(detailer);
                     }
                 }
                 connection.Close();
             }
-            return lijstVanDetailers;
+            return lijstVanAfspraken;
         }
 
         public AfspraakDTO AfspraakOphalenOpID(int id)

@@ -25,7 +25,7 @@ namespace DataLaag.DataToegang
         public List<DetailerDTO> AlleDetailersOphalen()
         {
             List<DetailerDTO> lijstVanDetailers = new List<DetailerDTO>();
-            string query = "SELECT * FROM detailer";
+            string query = "SELECT * FROM detailer ORDER BY Naam";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
