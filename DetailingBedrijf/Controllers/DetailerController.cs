@@ -22,5 +22,34 @@ namespace DetailingBedrijf.Controllers
             List<DetailerModel> models = _logica.HaalAlleDetailersOp();
             return View(models);
         }
+
+        [HttpGet]
+        [Route("Detailer/Aanmaken")]
+        public IActionResult Aanmaken()
+        {
+            return View(new DetailerModel());
+        }
+
+        [HttpGet]
+        [Route("Detailer/Details/{id}")]
+        public IActionResult Details(int id)
+        {
+            DetailerModel model = _logica.HaalDetailerOpViaID(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Aanmaken(DetailerModel model)
+        {
+            _logica.DetailerAanmaken(model);
+            return RedirectToAction("Index");
+        }
+
+        [Route("Detailer/Verwijderen/{id}")]
+        public IActionResult Verwijderen(int id)
+        {
+            _logica.VerwijderDetailer(id);
+            return RedirectToAction("Index");
+        }
     }
 }

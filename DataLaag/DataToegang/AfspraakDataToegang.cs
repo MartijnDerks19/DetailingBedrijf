@@ -1,28 +1,27 @@
 ﻿using DataLaag.DTOs;
-using InterfaceLaag.Interfaces;
+using InterfaceLaag.DTOs;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    public class DetailerDataToegang : IDetailer
+    public class AfspraakDataToegang
     {
         private IConfiguration _configuration;
         private string _connectionString;
-        public DetailerDataToegang(IConfiguration configuration)
+        public AfspraakDataToegang(IConfiguration configuration)
         {
             _configuration = configuration;
             string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
             _connectionString = connectionString;
         }
 
-        public List<DetailerDTO> AlleDetailersOphalen()
+        public List<AfspraakDTO> AlleAfsprakenOphalen()
         {
             List<DetailerDTO> lijstVanDetailers = new List<DetailerDTO>();
             string query = "SELECT * FROM detailer";
@@ -47,7 +46,7 @@ namespace DataLaag.DataToegang
             return lijstVanDetailers;
         }
 
-        public DetailerDTO DetailerOphalenOpID(int id)
+        public AfspraakDTO AfspraakOphalenOpID(int id)
         {
             DetailerDTO detailer = new DetailerDTO();
             string query = "SELECT * FROM detailer WHERE DetailerID = @DetailerID";
@@ -69,7 +68,7 @@ namespace DataLaag.DataToegang
             return detailer;
         }
 
-        public void DetailerToevoegen(DetailerDTO detailer)
+        public void AfspraakToevoegen(DetailerDTO detailer)
         {
             string query = "INSERT INTO detailer (Naam) VALUES (@Naam)";
 
@@ -85,7 +84,7 @@ namespace DataLaag.DataToegang
             }
         }
 
-        public void VerwijderDetailerOpID(int id)
+        public void VerwijderAfspraakOpID(int id)
         {
             using (MySqlConnection connectie = new(_connectionString))
             {
