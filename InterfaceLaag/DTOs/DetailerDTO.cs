@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DTOs
 {
-    internal class DetailerDTO
+    public class DetailerDTO
     {
+        public int DetailerID { get; set; }
+        public string Naam { get; set; }
     }
 }

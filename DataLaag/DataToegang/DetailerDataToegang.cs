@@ -1,4 +1,5 @@
 ﻿using DataLaag.DTOs;
+using InterfaceLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
@@ -10,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    public class DetailerDataToegang
+    public class DetailerDataToegang : IDetailer
     {
         private IConfiguration _configuration;
         private string _connectionString;
-        public DetailerDataAccess(IConfiguration configuration)
+        public DetailerDataToegang(IConfiguration configuration)
         {
             _configuration = configuration;
             string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
             _connectionString = connectionString;
         }
 
-        public List<DetailerDTO> GetAllDetailers()
+        public List<DetailerDTO> AlleDetailersOphalen()
         {
-            List<DetailerDTO> listOfDetailers = new List<DetailerDTO>();
+            List<DetailerDTO> lijstVanDetailers = new List<DetailerDTO>();
             string query = "SELECT * FROM detailer";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
@@ -36,17 +37,17 @@ namespace DataLaag.DataToegang
                         var detailer = new DetailerDTO()
                         {
                             DetailerID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
+                            Naam = reader.GetString(1),
                         };
-                        listOfDetailers.Add(detailer);
+                        lijstVanDetailers.Add(detailer);
                     }
                 }
                 connection.Close();
             }
-            return listOfDetailers;
+            return lijstVanDetailers;
         }
 
-        public DetailerDTO GetDetailerByID(int id)
+        public DetailerDTO DetailerOphalenOpID(int id)
         {
             DetailerDTO detailer = new DetailerDTO();
             string query = "SELECT * FROM detailer WHERE DetailerID = @DetailerID";
@@ -60,8 +61,7 @@ namespace DataLaag.DataToegang
                     while (reader.Read())
                     {
                         detailer.DetailerID = reader.GetInt32(0);
-                        detailer.Name = reader.GetString(1);
-                        detailer.Email = reader.GetString(2);
+                        detailer.Naam = reader.GetString(1);
                     }
                 }
                 connection.Close();
@@ -69,34 +69,33 @@ namespace DataLaag.DataToegang
             return detailer;
         }
 
-        public void AddDetailer(DetailerDTO detailer)
+        public void DetailerToevoegen(DetailerDTO detailer)
         {
-            string query = "INSERT INTO detailer (Name, Email) VALUES (@Name, @Email)";
+            string query = "INSERT INTO detailer (Naam) VALUES (@Naam)";
 
             using (MySqlConnection connection = new(_connectionString))
             {
                 connection.Open();
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.Add("@Name", MySqlDbType.Enum, 255).Value = detailer.Name;
-                    cmd.Parameters.Add("@Email", MySqlDbType.Enum, 255).Value = detailer.Email;
+                    cmd.Parameters.Add("@Name", MySqlDbType.Enum, 255).Value = detailer.Naam;
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();
             }
         }
 
-        public void DeleteDetailerByID(int id)
+        public void VerwijderDetailerOpID(int id)
         {
-            using (MySqlConnection connection = new(_connectionString))
+            using (MySqlConnection connectie = new(_connectionString))
             {
-                connection.Open();
-                using (MySqlCommand cmd = new("DELETE FROM detailer WHERE DetailerID = @DetailerID", connection))
+                connectie.Open();
+                using (MySqlCommand cmd = new("DELETE FROM detailer WHERE DetailerID = @DetailerID", connectie))
                 {
                     cmd.Parameters.Add("@DetailerID", MySqlDbType.Int64, 255).Value = id;
                     cmd.ExecuteNonQuery();
                 }
-                connection.Close();
+                connectie.Close();
             }
         }
     }
