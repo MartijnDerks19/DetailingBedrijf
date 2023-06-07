@@ -20,57 +20,93 @@ namespace TestProject.DetailerTesten
         public void CheckOfDetailerIsVerwijderdBestaandID(int id)
         {
             //Arrange
-            DetailerMockData data = new DetailerMockData();
+            List<DetailerDTO> detailers = new List<DetailerDTO>()
+            {
+                new DetailerDTO(){Naam = "John", DetailerID = 1},
+                new DetailerDTO(){Naam = "Greet", DetailerID = 2},
+                new DetailerDTO(){Naam = "Bob", DetailerID = 3},
+                new DetailerDTO(){Naam = "Carolien", DetailerID = 4},
+                new DetailerDTO(){Naam = "Bas", DetailerID = 5},
+            };
+
+            DetailerMockData data = new DetailerMockData(detailers);
             DetailerLogica logica = new DetailerLogica(data);
-            DetailerDTO dto = new DetailerDTO();
+            int expectedCount = data.AlleDetailers.Count - 1;
+            DetailerDTO deletedDTO = detailers[0];
 
             //Act 
-            int expectedCount = data.AlleDetailers.Count -1;
-            logica.VerwijderDetailer(id);
-            int actualCount = data.AlleDetailers.Count;
+            logica.VerwijderDetailer(detailers[0].DetailerID);
 
             //Assert
-            Assert.Equal(expectedCount, actualCount); //does not contain
+            Assert.Equal(expectedCount, data.AlleDetailers.Count);
+            Assert.DoesNotContain(deletedDTO ,data.AlleDetailers);
         }
 
         [Fact]
         public void CheckOfDetailerWordtToegevoegdAanLijst()
         {
             //Arrange
-            DetailerMockData data = new DetailerMockData();
-            DetailerLogica logica = new DetailerLogica(data);
-            DetailerDTO dto = new DetailerDTO()
+            List<DetailerDTO> detailers = new List<DetailerDTO>()
             {
-                Naam = "Test",
-                DetailerID = 99
+                new DetailerDTO(){Naam = "John", DetailerID = 1},
+                new DetailerDTO(){Naam = "Greet", DetailerID = 2},
+                new DetailerDTO(){Naam = "Bob", DetailerID = 3},
+                new DetailerDTO(){Naam = "Carolien", DetailerID = 4},
             };
 
-            //Act 
+            DetailerDTO dto = new DetailerDTO()
+            {
+                Naam = "Bas",
+                DetailerID = 5
+            };
+
+            DetailerMockData data = new DetailerMockData(detailers);
+            DetailerLogica logica = new DetailerLogica(data);
             int expectedCount = data.AlleDetailers.Count + 1;
+
+            //Act 
             logica.DetailerAanmaken(dto);
-            int actualCount = data.AlleDetailers.Count;
 
             //Assert
-            Assert.Equal(expectedCount, actualCount);
+            Assert.Equal(expectedCount, data.AlleDetailers.Count);
+            Assert.Contains(dto , data.AlleDetailers);
         }
 
         [Fact]
         public void AlsDetailerWordtToegevoegdMetInvalideDataDanThrowException()
         {
             //Arrange
+            List<DetailerDTO> detailers = new List<DetailerDTO>();
             string expectedExceptionMessage = "De naam van een detailer moet ingevuld zijn!";
-            DetailerMockData data = new DetailerMockData();
+            DetailerMockData data = new DetailerMockData(detailers);
             DetailerLogica logica = new DetailerLogica(data);
-            DetailerDTO dto = new DetailerDTO()
+            DetailerDTO dtoZonderNaam = new DetailerDTO()
             {
                 DetailerID = 99
             };
 
             //Act 
-            var actualErrorMessage = Assert.Throws<InvalidDataException>(() => logica.DetailerAanmaken(dto));
+            var actualErrorMessage = Assert.Throws<InvalidDataException>(() => logica.DetailerAanmaken(dtoZonderNaam));
 
             //Assert
             Assert.Equal(expectedExceptionMessage, actualErrorMessage.Message);
+        }
+
+        public List<DetailerDTO> VulLijst(int hoeveelheid)
+        {
+            int id = 0;
+            List<DetailerDTO> detailers = new List<DetailerDTO>();
+            for (int i = 0; i < hoeveelheid; i++)
+            {
+                DetailerDTO dto = new DetailerDTO()
+                {
+                    DetailerID = id,
+                    Naam = "Test"
+                };
+                detailers.Add(dto);
+                id++;
+            }
+            return detailers;
         }
     }
 }

@@ -34,14 +34,11 @@ namespace LogicaLaag.Logica
 
         public void DetailerAanmaken(DetailerDTO dto)
         {
-            if (dto.Naam != null)
-            {
-                _data.DetailerToevoegen(dto);
-            }
-            else
+            if (dto.Naam == null)
             {
                 throw new InvalidDataException("De naam van een detailer moet ingevuld zijn!");
             }
+            _data.DetailerToevoegen(dto);
         }
 
         public void VerwijderDetailer(int id)
