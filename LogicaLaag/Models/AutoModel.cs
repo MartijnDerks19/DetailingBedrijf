@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace LogicaLaag.Models
 {
-    internal class AutoModel
+    public class AutoModel
     {
+        public int AutoID { get; set; }
+        public string Merk { get; set; }
+        public string Type { get; set; }
+        public int Bouwjaar { get; set; }
     }
 }

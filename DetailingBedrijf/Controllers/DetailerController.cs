@@ -13,7 +13,7 @@ namespace DetailingBedrijf.Controllers
 
         public DetailerController(IConfiguration configuration)
         {
-            DetailerDataToegang _data = new DetailerDataToegang(configuration);
+            IDetailer _data = new DetailerDataToegang(configuration);//
             DetailerLogica logica = new DetailerLogica(_data);
             _logica = logica;
         }

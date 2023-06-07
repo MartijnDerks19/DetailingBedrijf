@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicaLaag.Logica
 {
-    internal class BedrijfsLogica
+    public class DashboardLogica
     {
     }
 }

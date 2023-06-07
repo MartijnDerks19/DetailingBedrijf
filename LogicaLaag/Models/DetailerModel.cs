@@ -10,9 +10,9 @@ namespace LogicaLaag.Models
     {
         private int _detailerID;
         private string _naam;
-        private List<Afspraak> afspraken = new List<Afspraak>();
 
         public int DetailerID { get; set; }
         public string Naam { get; set; }
+        public List<AfspraakModel> AfsprakenDetailer { get; set; }
     }
 }
