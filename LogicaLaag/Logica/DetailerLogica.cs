@@ -1,8 +1,10 @@
-﻿using InterfaceLaag.Interfaces;
+﻿using DataLaag.DTOs;
+using InterfaceLaag.Interfaces;
 using LogicaLaag.Mapping;
 using LogicaLaag.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +32,16 @@ namespace LogicaLaag.Logica
 
         }
 
-        public void DetailerAanmaken(DetailerModel model)
+        public void DetailerAanmaken(DetailerDTO dto)
         {
-            _data.DetailerToevoegen(_mapping.MapModelNaarDTO(model));
+            if (dto.Naam != null)
+            {
+                _data.DetailerToevoegen(dto);
+            }
+            else
+            {
+                throw new InvalidDataException("De naam van een detailer moet ingevuld zijn!");
+            }
         }
 
         public void VerwijderDetailer(int id)
