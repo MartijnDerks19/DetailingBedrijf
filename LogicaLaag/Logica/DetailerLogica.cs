@@ -22,7 +22,7 @@ namespace LogicaLaag.Logica
         public List<DetailerModel> HaalAlleDetailersOp()
         {
             List<DetailerModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AlleDetailersOphalen());
-            return SorteerLijstOpNaam(models);
+            return models;
         }
 
         public DetailerModel HaalDetailerOpViaID(int id)
@@ -44,12 +44,6 @@ namespace LogicaLaag.Logica
         public void VerwijderDetailer(int id)
         {
             _data.VerwijderDetailerOpID(id);
-        }
-
-        private List<DetailerModel> SorteerLijstOpNaam(List<DetailerModel> models)
-        {
-            List<DetailerModel> sortedList = models.OrderBy(o => o.Naam).ToList();
-            return sortedList;
         }
     }
 }
