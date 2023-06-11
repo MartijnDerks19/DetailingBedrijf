@@ -17,7 +17,8 @@ namespace LogicaLaag.Mapping
                 AutoID = dto.AutoID,
                 Merk = dto.Merk,
                 Type = dto.Type,
-                Bouwjaar = dto.Bouwjaar
+                Bouwjaar = dto.Bouwjaar,
+                EigenaarID = dto.EigenaarID,
             };
             return model;
         }
@@ -29,7 +30,8 @@ namespace LogicaLaag.Mapping
                 AutoID = model.AutoID,
                 Merk = model.Merk,
                 Type = model.Type,
-                Bouwjaar = model.Bouwjaar
+                Bouwjaar = model.Bouwjaar,
+                EigenaarID = model.EigenaarID,
             };
             return dto;
         }

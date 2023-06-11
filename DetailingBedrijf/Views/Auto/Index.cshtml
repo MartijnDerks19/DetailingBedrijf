@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LogicaLaag.Models.AutoModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Merk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bouwjaar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EigenaarID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Merk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bouwjaar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EigenaarID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AutoID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AutoID  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AutoID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

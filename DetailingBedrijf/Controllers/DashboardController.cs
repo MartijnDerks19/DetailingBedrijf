@@ -23,7 +23,7 @@ namespace DetailingBedrijf.Controllers
         }
         public IActionResult Index()
         {
-            List<DetailerModel> models = _logica.HaalAlleDetailersOp();
+            List<DetailerModel> models = _logica.HaalAllesOp();
             return View(models);
         }
 

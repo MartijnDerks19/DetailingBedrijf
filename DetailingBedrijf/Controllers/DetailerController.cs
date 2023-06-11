@@ -22,7 +22,7 @@ namespace DetailingBedrijf.Controllers
         }
         public IActionResult Index()
         {
-            List<DetailerModel> models = _logica.HaalAlleDetailersOp();
+            List<DetailerModel> models = _logica.HaalAllesOp();
             return View(models);
         }
 
@@ -37,22 +37,22 @@ namespace DetailingBedrijf.Controllers
         [Route("Detailer/Details/{id}")]
         public IActionResult Details(int id)
         {
-            DetailerModel model = _logica.HaalDetailerOpViaID(id);
+            DetailerModel model = _logica.HaalOpViaID(id);
             return View(model);
         }
 
         [HttpPost]
         public IActionResult Aanmaken(DetailerModel model)
         {
-            _logica.DetailerAanmaken(_mapping.MapModelNaarDTO(model));
-            return RedirectToAction("Index");
+            _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
+            return RedirectToAction("Index", "Dashboard");
         }
 
         [Route("Detailer/Verwijderen/{id}")]
         public IActionResult Verwijderen(int id)
         {
-            _logica.VerwijderDetailer(id);
-            return RedirectToAction("Index");
+            _logica.Verwijderen(id);
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }

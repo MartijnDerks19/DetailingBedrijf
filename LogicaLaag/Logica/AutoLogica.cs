@@ -13,35 +13,35 @@ namespace LogicaLaag.Logica
 {
     public class AutoLogica
     {
-        private ICRUDCollectie<AfspraakDTO> _data;
-        private DetailerMapping _mapping = new DetailerMapping();
-        public AfspraakLogica(ICRUDCollectie<AfspraakDTO> data)
+        private ICRUDCollectie<AutoDTO> _data;
+        private AutoMapping _mapping = new AutoMapping();
+        public AutoLogica(ICRUDCollectie<AutoDTO> data)
         {
             _data = data;
         }
-        public List<AfspraakModel> HaalAlleDetailersOp()
+        public List<AutoModel> HaalAllesOp()
         {
-            List<AfspraakModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
+            List<AutoModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
             return models;
         }
 
-        public DetailerModel HaalDetailerOpViaID(int id)
+        public AutoModel HaalOpViaID(int id)
         {
-            DetailerModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
+            AutoModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
             return model;
 
         }
 
-        public void DetailerAanmaken(DetailerDTO dto)
+        public void Aanmaken(AutoDTO dto)
         {
-            if (dto.Naam == null)
+            if (dto.Merk == null)
             {
-                throw new InvalidDataException("De naam van een detailer moet ingevuld zijn!");
+                throw new InvalidDataException("Het merk van een auto moet ingevuld zijn!");
             }
             _data.Aanmaken(dto);
         }
 
-        public void VerwijderDetailer(int id)
+        public void Verwijderen(int id)
         {
             _data.VerwijderenOpID(id);
         }

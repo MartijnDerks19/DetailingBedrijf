@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LogicaLaag.Models.AfspraakModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DetailerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AfspraakID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumEnTijd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AfspraakID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumEnTijd)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AfspraakID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AfspraakID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AfspraakID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
