@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogicaLaag.Mapping
 {
-    public class EigenaarMapping
+    public class AutoEigenaarMapping
     {
         public AutoEigenaarModel MapDTONaarModel(AutoEigenaarDTO dto)
         {

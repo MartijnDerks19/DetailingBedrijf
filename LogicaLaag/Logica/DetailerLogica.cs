@@ -19,20 +19,20 @@ namespace LogicaLaag.Logica
         {
             _data = data;
         }
-        public List<DetailerModel> HaalAlleDetailersOp()
+        public List<DetailerModel> HaalAllesOp()
         {
             List<DetailerModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
             return models;
         }
 
-        public DetailerModel HaalDetailerOpViaID(int id)
+        public DetailerModel HaalOpViaID(int id)
         {
             DetailerModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
             return model;
 
         }
 
-        public void DetailerAanmaken(DetailerDTO dto)
+        public void Aanmaken(DetailerDTO dto)
         {
             if (dto.Naam == null)
             {
@@ -41,7 +41,7 @@ namespace LogicaLaag.Logica
             _data.Aanmaken(dto);
         }
 
-        public void VerwijderDetailer(int id)
+        public void Verwijderen(int id)
         {
             _data.VerwijderenOpID(id);
         }

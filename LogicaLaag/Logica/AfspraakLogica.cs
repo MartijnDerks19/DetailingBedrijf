@@ -13,37 +13,37 @@ namespace LogicaLaag.Logica
 {
     public class AfspraakLogica
     {
-        //private ICRUDCollectie<AfspraakDTO> _data;
-        //private DetailerMapping _mapping = new DetailerMapping();
-        //public AfspraakLogica(ICRUDCollectie<AfspraakDTO> data)
-        //{
-        //    _data = data;
-        //}
-        //public List<AfspraakModel> HaalAlleDetailersOp()
-        //{
-        //    List<AfspraakModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
-        //    return models;
-        //}
+        private ICRUDCollectie<AfspraakDTO> _data;
+        private AfspraakMapping _mapping = new AfspraakMapping();
+        public AfspraakLogica(ICRUDCollectie<AfspraakDTO> data)
+        {
+            _data = data;
+        }
+        public List<AfspraakModel> HaalAllesOp()
+        {
+            List<AfspraakModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
+            return models;
+        }
 
-        //public DetailerModel HaalDetailerOpViaID(int id)
-        //{
-        //    DetailerModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
-        //    return model;
+        public AfspraakModel HaalOpViaID(int id)
+        {
+            AfspraakModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
+            return model;
 
-        //}
+        }
 
-        //public void DetailerAanmaken(DetailerDTO dto)
-        //{
-        //    if (dto.Naam == null)
-        //    {
-        //        throw new InvalidDataException("De naam van een detailer moet ingevuld zijn!");
-        //    }
-        //    _data.Aanmaken(dto);
-        //}
+        public void Aanmaken(AfspraakDTO dto)
+        {
+            if (dto.DatumEnTijd == null)
+            {
+                throw new InvalidDataException("De datum van een afspraak moet ingevuld zijn.");
+            }
+            _data.Aanmaken(dto);
+        }
 
-        //public void VerwijderDetailer(int id)
-        //{
-        //    _data.VerwijderenOpID(id);
-        //}
+        public void Verwijderen(int id)
+        {
+            _data.VerwijderenOpID(id);
+        }
     }
 }
