@@ -27,6 +27,28 @@ namespace DetailingBedrijf.Controllers
             return View(models);
         }
 
+        public IActionResult DetailerAanpassing()
+        {
+            return View();
+        }
+        public IActionResult AfspraakAanpassingen()
+        {
+            return View();
+        }
 
+        public IActionResult AutoEigenaarAanpassingen()
+        {
+            return View();
+        }
+
+        public IActionResult AutoAanpassingen()
+        {
+            return View();
+        }
+
+        public IActionResult AfspraakInplannen()
+        {
+            return View();
+        }
     }
 }
