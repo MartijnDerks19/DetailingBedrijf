@@ -1,7 +1,12 @@
+using DataLaag.DataToegang;
+using DataLaag.DTOs;
+using InterfaceLaag.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<ICRUDCollectie<DetailerDTO>, DetailerDataToegang>();
 
 var app = builder.Build();
 

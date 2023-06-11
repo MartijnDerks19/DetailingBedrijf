@@ -9,7 +9,7 @@ using Xunit;
 
 namespace TestProject.MockDataToegang
 {
-    public class DetailerMockData : IDetailer
+    public class DetailerMockData : ICRUDCollectie<DetailerDTO>
     {
         private List<DetailerDTO> _detailers = new List<DetailerDTO>();
         public List<DetailerDTO> AlleDetailers { get { return _detailers; } set { _detailers = value; } }
@@ -49,6 +49,31 @@ namespace TestProject.MockDataToegang
             {
                 _detailers.Remove(detailer);
             }
+        }
+
+        public void Aanmaken(DetailerDTO entiteit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void VerwijderenOpID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AanpassenOpID(int id, DetailerDTO entiteit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DetailerDTO OphalenOpID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DetailerDTO> AllesOphalen()
+        {
+            throw new NotImplementedException();
         }
     }
 }

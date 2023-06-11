@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    public class DetailerDataToegang : IDetailer
+    public class DetailerDataToegang : ICRUDCollectie<DetailerDTO>
     {
         private IConfiguration _configuration;
         private string _connectionString;
@@ -22,7 +22,7 @@ namespace DataLaag.DataToegang
             _connectionString = connectionString;
         }
 
-        public List<DetailerDTO> AlleDetailersOphalen()
+        public List<DetailerDTO> AllesOphalen()
         {
             List<DetailerDTO> lijstVanDetailers = new List<DetailerDTO>();
             string query = "SELECT * FROM detailer ORDER BY Naam";
@@ -47,7 +47,7 @@ namespace DataLaag.DataToegang
             return lijstVanDetailers;
         }
 
-        public DetailerDTO DetailerOphalenOpID(int id)
+        public DetailerDTO OphalenOpID(int id)
         {
             DetailerDTO detailer = new DetailerDTO();
             string query = "SELECT * FROM detailer WHERE DetailerID = @DetailerID";
@@ -69,7 +69,7 @@ namespace DataLaag.DataToegang
             return detailer;
         }
 
-        public void DetailerToevoegen(DetailerDTO detailer)
+        public void Aanmaken(DetailerDTO detailer)
         {
             string query = "INSERT INTO detailer (Naam) VALUES (@Naam)";
 
@@ -85,7 +85,7 @@ namespace DataLaag.DataToegang
             }
         }
 
-        public void VerwijderDetailerOpID(int id)
+        public void VerwijderenOpID(int id)
         {
             using (MySqlConnection connectie = new(_connectionString))
             {
@@ -97,6 +97,11 @@ namespace DataLaag.DataToegang
                 }
                 connectie.Close();
             }
+        }
+
+        public void AanpassenOpID(int id, DetailerDTO entiteit)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace LogicaLaag.Mapping
 {
     public class EigenaarMapping
     {
-        public EigenaarModel MapDTONaarModel(EigenaarDTO dto)
+        public AutoEigenaarModel MapDTONaarModel(AutoEigenaarDTO dto)
         {
-            EigenaarModel model = new EigenaarModel()
+            AutoEigenaarModel model = new AutoEigenaarModel()
             {
                 EigenaarID = dto.EigenaarID,
                 Naam = dto.Naam,
@@ -21,9 +21,9 @@ namespace LogicaLaag.Mapping
             return model;
         }
 
-        public EigenaarDTO MapModelNaarDTO(EigenaarModel model)
+        public AutoEigenaarDTO MapModelNaarDTO(AutoEigenaarModel model)
         {
-            EigenaarDTO dto = new EigenaarDTO()
+            AutoEigenaarDTO dto = new AutoEigenaarDTO()
             {
                 EigenaarID = model.EigenaarID,
                 Naam = model.Naam,
@@ -32,9 +32,9 @@ namespace LogicaLaag.Mapping
             return dto;
         }
 
-        public List<EigenaarModel> MapDTOLijstNaarModelLijst(List<EigenaarDTO> DTOs)
+        public List<AutoEigenaarModel> MapDTOLijstNaarModelLijst(List<AutoEigenaarDTO> DTOs)
         {
-            List<EigenaarModel> models = new List<EigenaarModel>();
+            List<AutoEigenaarModel> models = new List<AutoEigenaarModel>();
             foreach (var dto in DTOs)
             {
                 models.Add(MapDTONaarModel(dto));

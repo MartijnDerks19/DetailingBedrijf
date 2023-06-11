@@ -15,9 +15,8 @@ namespace TestProject.DetailerTesten
 {
     public class DetailerTesten
     {
-        [Theory]
-        [InlineData(1)]
-        public void CheckOfDetailerIsVerwijderdBestaandID(int id)
+        [Fact]
+        public void CheckOfDetailerIsVerwijderdBestaandID()
         {
             //Arrange
             List<DetailerDTO> detailers = new List<DetailerDTO>()

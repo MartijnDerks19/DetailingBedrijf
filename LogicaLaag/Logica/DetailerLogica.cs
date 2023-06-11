@@ -13,21 +13,21 @@ namespace LogicaLaag.Logica
 {
     public class DetailerLogica
     {
-        private IDetailer _data;
+        private ICRUDCollectie<DetailerDTO> _data;
         private DetailerMapping _mapping = new DetailerMapping();
-        public DetailerLogica(IDetailer data)
+        public DetailerLogica(ICRUDCollectie<DetailerDTO> data)
         {
             _data = data;
         }
         public List<DetailerModel> HaalAlleDetailersOp()
         {
-            List<DetailerModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AlleDetailersOphalen());
+            List<DetailerModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
             return models;
         }
 
         public DetailerModel HaalDetailerOpViaID(int id)
         {
-            DetailerModel model = _mapping.MapDTONaarModel(_data.DetailerOphalenOpID(id));
+            DetailerModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
             return model;
 
         }
@@ -38,12 +38,12 @@ namespace LogicaLaag.Logica
             {
                 throw new InvalidDataException("De naam van een detailer moet ingevuld zijn!");
             }
-            _data.DetailerToevoegen(dto);
+            _data.Aanmaken(dto);
         }
 
         public void VerwijderDetailer(int id)
         {
-            _data.VerwijderDetailerOpID(id);
+            _data.VerwijderenOpID(id);
         }
     }
 }

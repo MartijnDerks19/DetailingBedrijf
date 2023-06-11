@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    internal class EigenaarDataToegang
+    public class AutoEigenaarDataToegang
     {
     }
 }

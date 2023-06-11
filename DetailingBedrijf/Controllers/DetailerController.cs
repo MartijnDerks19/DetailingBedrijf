@@ -1,4 +1,5 @@
 ﻿using DataLaag.DataToegang;
+using DataLaag.DTOs;
 using InterfaceLaag.Interfaces;
 using LogicaLaag.Logica;
 using LogicaLaag.Mapping;
@@ -15,7 +16,7 @@ namespace DetailingBedrijf.Controllers
 
         public DetailerController(IConfiguration configuration)
         {
-            IDetailer _data = new DetailerDataToegang(configuration);//
+            ICRUDCollectie<DetailerDTO> _data = new DetailerDataToegang(configuration);//
             DetailerLogica logica = new DetailerLogica(_data);
             _logica = logica;
         }
