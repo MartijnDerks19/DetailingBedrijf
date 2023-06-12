@@ -1,6 +1,5 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.DTOs;
-using InterfaceLaag.Interfaces;
+﻿using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using LogicaLaag.Mapping;
 using LogicaLaag.Models;
 using System;
@@ -14,10 +13,12 @@ namespace LogicaLaag.Logica
     public class AfspraakLogica
     {
         private ICRUDCollectie<AfspraakDTO> _data;
+        private IDashboard _dashboardData;
         private AfspraakMapping _mapping = new AfspraakMapping();
-        public AfspraakLogica(ICRUDCollectie<AfspraakDTO> data)
+        public AfspraakLogica(ICRUDCollectie<AfspraakDTO> data, IDashboard dashboardData)
         {
             _data = data;
+            _dashboardData = dashboardData;
         }
         public List<AfspraakModel> HaalAllesOp()
         {
@@ -44,6 +45,12 @@ namespace LogicaLaag.Logica
         public void Verwijderen(int id)
         {
             _data.VerwijderenOpID(id);
+        }
+
+        public List<AfspraakModel> HaalOpVoorDetailer(int detailerID)
+        {
+           List<AfspraakModel> afspraken = _mapping.MapDTOLijstNaarModelLijst(_dashboardData.AllesOphalenVoorDetailer(detailerID));
+            return afspraken;
         }
     }
 }

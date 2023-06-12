@@ -1,0 +1,43 @@
+﻿@model LogicaLaag.Models.AfspraakModel
+
+@{
+    ViewData["Title"] = "Aanmaken";
+}
+
+<h1>Aanmaken</h1>
+
+<h4>AfspraakModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Aanmaken">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AutoID" class="control-label"></label>
+                <input asp-for="AutoID" class="form-control" />
+                <span asp-validation-for="AutoID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AfspraakID" class="control-label"></label>
+                <input asp-for="AfspraakID" class="form-control" />
+                <span asp-validation-for="AfspraakID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumEnTijd" class="control-label"></label>
+                <input asp-for="DatumEnTijd" class="form-control" />
+                <span asp-validation-for="DatumEnTijd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

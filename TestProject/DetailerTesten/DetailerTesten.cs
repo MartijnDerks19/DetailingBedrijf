@@ -1,5 +1,5 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.Interfaces;
+﻿using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using LogicaLaag.Logica;
 using LogicaLaag.Mapping;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
@@ -15,77 +15,63 @@ namespace TestProject.DetailerTesten
 {
     public class DetailerTesten
     {
-        [Fact]
-        public void CheckOfDetailerIsVerwijderdBestaandID()
+        private DetailerLogica _logica;
+        private DetailerMockData _mock;
+
+
+        public DetailerTesten()
+        {
+            DetailerMockData mock = new DetailerMockData();
+            DetailerLogica logica = new DetailerLogica(mock);
+            _logica = logica;
+            _mock = mock;
+        }
+
+        [Theory]
+        [InlineData(30)]
+        [InlineData(40)]
+        public void CheckOfVerwijderMethodeWordtAangeroepenEnParametersHetzelfdeZijn(int id)
         {
             //Arrange
-            List<DetailerDTO> detailers = new List<DetailerDTO>()
-            {
-                new DetailerDTO(){Naam = "John", DetailerID = 1},
-                new DetailerDTO(){Naam = "Greet", DetailerID = 2},
-                new DetailerDTO(){Naam = "Bob", DetailerID = 3},
-                new DetailerDTO(){Naam = "Carolien", DetailerID = 4},
-                new DetailerDTO(){Naam = "Bas", DetailerID = 5},
-            };
-
-            DetailerMockData data = new DetailerMockData(detailers);
-            DetailerLogica logica = new DetailerLogica(data);
-            int expectedCount = data.AlleDetailers.Count - 1;
-            DetailerDTO deletedDTO = detailers[0];
-
-            //Act 
-            logica.VerwijderDetailer(detailers[0].DetailerID);
+            int expectedID = id;
+            //Act
+            _logica.Verwijderen(id);
 
             //Assert
-            Assert.Equal(expectedCount, data.AlleDetailers.Count);
-            Assert.DoesNotContain(deletedDTO ,data.AlleDetailers);
+            Assert.Equal(expectedID, _mock.VerwijderID);
         }
 
         [Fact]
-        public void CheckOfDetailerWordtToegevoegdAanLijst()
+        public void CheckOfAanmaakMethodeWordtAangeroepenEnParametersHetzelfdeZijn()
         {
             //Arrange
-            List<DetailerDTO> detailers = new List<DetailerDTO>()
-            {
-                new DetailerDTO(){Naam = "John", DetailerID = 1},
-                new DetailerDTO(){Naam = "Greet", DetailerID = 2},
-                new DetailerDTO(){Naam = "Bob", DetailerID = 3},
-                new DetailerDTO(){Naam = "Carolien", DetailerID = 4},
-            };
-
             DetailerDTO dto = new DetailerDTO()
             {
-                Naam = "Bas",
-                DetailerID = 5
+                Naam = "Test",
+                DetailerID = 120
             };
 
-            DetailerMockData data = new DetailerMockData(detailers);
-            DetailerLogica logica = new DetailerLogica(data);
-            int expectedCount = data.AlleDetailers.Count + 1;
-
-            //Act 
-            logica.DetailerAanmaken(dto);
+            //Act
+            _logica.Aanmaken(dto);
 
             //Assert
-            Assert.Equal(expectedCount, data.AlleDetailers.Count);
-            Assert.Contains(dto , data.AlleDetailers);
+            Assert.Equal(dto.Naam, _mock.DTO.Naam);
+            Assert.Equal(dto.DetailerID, _mock.DTO.DetailerID);
         }
 
         [Fact]
         public void AlsDetailerWordtToegevoegdMetInvalideDataDanThrowException()
         {
             //Arrange
-            List<DetailerDTO> detailers = new List<DetailerDTO>();
+
             string expectedExceptionMessage = "De naam van een detailer moet ingevuld zijn!";
-            DetailerMockData data = new DetailerMockData(detailers);
-            DetailerLogica logica = new DetailerLogica(data);
             DetailerDTO dtoZonderNaam = new DetailerDTO()
             {
                 DetailerID = 99
             };
 
             //Act 
-            var actualErrorMessage = Assert.Throws<InvalidDataException>(() => logica.DetailerAanmaken(dtoZonderNaam));
+            var actualErrorMessage = Assert.Throws<InvalidDataException>(() => _logica.Aanmaken(dtoZonderNaam));
 
             //Assert
             Assert.Equal(expectedExceptionMessage, actualErrorMessage.Message);

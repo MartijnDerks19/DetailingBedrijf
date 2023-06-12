@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterfaceLaag.Interfaces
+namespace LogicaLaag.Interfaces
 {
     public interface ICRUDCollectie <T>
     {

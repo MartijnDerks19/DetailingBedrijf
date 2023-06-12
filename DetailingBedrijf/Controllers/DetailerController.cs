@@ -1,6 +1,6 @@
 ﻿using DataLaag.DataToegang;
-using DataLaag.DTOs;
-using InterfaceLaag.Interfaces;
+using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using LogicaLaag.Logica;
 using LogicaLaag.Mapping;
 using LogicaLaag.Models;
@@ -33,19 +33,19 @@ namespace DetailingBedrijf.Controllers
             return View(new DetailerModel());
         }
 
+        [HttpPost]
+        public IActionResult Aanmaken(DetailerModel model)
+        {
+            _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
+            return RedirectToAction("Index", "Dashboard");
+        }
+
         [HttpGet]
         [Route("Detailer/Details/{id}")]
         public IActionResult Details(int id)
         {
             DetailerModel model = _logica.HaalOpViaID(id);
             return View(model);
-        }
-
-        [HttpPost]
-        public IActionResult Aanmaken(DetailerModel model)
-        {
-            _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
-            return RedirectToAction("Index", "Dashboard");
         }
 
         [Route("Detailer/Verwijderen/{id}")]

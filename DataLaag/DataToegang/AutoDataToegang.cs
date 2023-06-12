@@ -1,6 +1,5 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.DTOs;
-using InterfaceLaag.Interfaces;
+﻿using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;

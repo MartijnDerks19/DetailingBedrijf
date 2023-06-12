@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterfaceLaag.DTOs
+namespace LogicaLaag.DTOs
 {
-    public class AutoEigenaarDTO
+    public class DetailerDTO
     {
-        public int EigenaarID { get; set; }
+        public int DetailerID { get; set; }
         public string Naam { get; set; }
-        public string Email { get; set; }
     }
 }

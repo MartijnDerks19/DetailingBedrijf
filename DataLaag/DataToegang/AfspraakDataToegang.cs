@@ -1,6 +1,5 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.DTOs;
-using InterfaceLaag.Interfaces;
+﻿using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang 
 {
-    public class AfspraakDataToegang : ICRUDCollectie<AfspraakDTO>
+    public class AfspraakDataToegang : ICRUDCollectie<AfspraakDTO>, IDashboard
     {
         private IConfiguration _configuration;
         private string _connectionString;
@@ -110,6 +109,34 @@ namespace DataLaag.DataToegang
         public void AanpassenOpID(int id, AfspraakDTO entiteit)
         {
             throw new NotImplementedException();
+        }
+
+        public List<AfspraakDTO> AllesOphalenVoorDetailer(int detailerID)
+        {
+            List<AfspraakDTO> lijstVanAfspraken = new List<AfspraakDTO>();
+            string query = "SELECT * FROM afspraak WHERE DetailerID = @DetailerID";
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    cmd.Parameters.Add("@DetailerID", MySqlDbType.Int64, 255).Value = detailerID;
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var afspraak = new AfspraakDTO()
+                        {
+                            AfspraakID = reader.GetInt32(0),
+                            DetailerID = reader.GetInt32(1),
+                            AutoID = reader.GetInt32(2),
+                            DatumEnTijd = reader.GetDateTime(3),
+                        };
+                        lijstVanAfspraken.Add(afspraak);
+                    }
+                }
+                connection.Close();
+            }
+            return lijstVanAfspraken;
         }
     }
 }

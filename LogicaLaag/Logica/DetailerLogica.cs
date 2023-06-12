@@ -1,5 +1,5 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.Interfaces;
+﻿using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using LogicaLaag.Mapping;
 using LogicaLaag.Models;
 using System;

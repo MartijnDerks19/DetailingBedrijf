@@ -50,10 +50,7 @@
                         @Html.DisplayFor(modelItem => item.Naam)
                     </td>
                     <td>
-                        <button type="button" class="btn >@Html.ActionLink("Verwijderen","Verwijderen", "Detailer", new { id = item.DetailerID })</button>
-                        <button type="button" class="btn >@Html.ActionLink("Details","Details", "Detailer", new { id = item.DetailerID })</button>
-                        <button type="button" class="btn >@Html.ActionLink("Aanpassen","Aanpassen", "Detailer", new { id = item.DetailerID })</button>
-                        <button>type="button" class="btn">@Html.ActionLink("Afspraken","AllesOphalen", "Afspraak", new { id = item.DetailerID })</button>
+                        <button type="button" class="btn btn-primar">@Html.ActionLink("Afspraken","OphalenVoorDetailer", "Afspraak", new { id = item.DetailerID })</button>
                     </td>
                 </tr>
             }

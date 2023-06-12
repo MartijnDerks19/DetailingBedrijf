@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterfaceLaag.DTOs
+namespace LogicaLaag.DTOs
 {
     public class AutoDTO
     {

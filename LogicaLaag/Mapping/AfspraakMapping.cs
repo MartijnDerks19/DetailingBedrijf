@@ -1,5 +1,4 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.DTOs;
+﻿using LogicaLaag.DTOs;
 using LogicaLaag.Models;
 using System;
 using System.Collections.Generic;

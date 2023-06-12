@@ -1,5 +1,5 @@
-﻿using DataLaag.DTOs;
-using InterfaceLaag.Interfaces;
+﻿using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,54 +11,36 @@ namespace TestProject.MockDataToegang
 {
     public class DetailerMockData : ICRUDCollectie<DetailerDTO>
     {
-        private List<DetailerDTO> _detailers = new List<DetailerDTO>();
-        public List<DetailerDTO> AlleDetailers { get { return _detailers; } set { _detailers = value; } }
-
-        public DetailerMockData(List<DetailerDTO> detailers)
+        public DetailerDTO DTO { get; set; }
+        public int VerwijderID { get; set; }
+        public DetailerMockData()
         {
-            _detailers = detailers;
+
         }
 
-        public List<DetailerDTO> AlleDetailersOphalen()
+        public List<DetailerDTO> AllesOphalen()
         {
-            return AlleDetailers;
+            return new List<DetailerDTO>();
         }
 
-        public DetailerDTO DetailerOphalenOpID(int id)
+        public DetailerDTO OphalenOpID(int id)
         {
-            DetailerDTO detailer = new DetailerDTO();
-            foreach (var dto in AlleDetailers)
+            DetailerDTO dto = new DetailerDTO()
             {
-                if (dto.DetailerID == id)
-                {
-                    detailer = dto;
-                }
-            }
-            return detailer;
+                DetailerID = id,
+                Naam = "Tests"
+            };
+            return dto;
         }
 
-        public void DetailerToevoegen(DetailerDTO detailer)
+        public void Aanmaken(DetailerDTO detailer)
         {
-            AlleDetailers.Add(detailer);
-        }
-
-        public void VerwijderDetailerOpID(int id)
-        {
-            var detailer = _detailers.FirstOrDefault(x => x.DetailerID == id);
-            if (detailer != null)
-            {
-                _detailers.Remove(detailer);
-            }
-        }
-
-        public void Aanmaken(DetailerDTO entiteit)
-        {
-            throw new NotImplementedException();
+            ZetDetailerDTOGelijkAanInputVanAanmaakMethode(detailer);
         }
 
         public void VerwijderenOpID(int id)
         {
-            throw new NotImplementedException();
+            ZetIDGelijkAanInputVanVerwijderMethode(id);
         }
 
         public void AanpassenOpID(int id, DetailerDTO entiteit)
@@ -66,14 +48,14 @@ namespace TestProject.MockDataToegang
             throw new NotImplementedException();
         }
 
-        public DetailerDTO OphalenOpID(int id)
+        public void ZetDetailerDTOGelijkAanInputVanAanmaakMethode(DetailerDTO dto)
         {
-            throw new NotImplementedException();
+            DTO = dto;
         }
 
-        public List<DetailerDTO> AllesOphalen()
+        public void ZetIDGelijkAanInputVanVerwijderMethode(int id)
         {
-            throw new NotImplementedException();
+            VerwijderID = id;
         }
     }
 }

@@ -1,6 +1,6 @@
 using DataLaag.DataToegang;
-using DataLaag.DTOs;
-using InterfaceLaag.Interfaces;
+using LogicaLaag.DTOs;
+using LogicaLaag.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+    pattern: "{controller=Afspraak}/{action=Index}/{id?}");
 
 app.Run();

@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InterfaceLaag\InterfaceLaag.csproj" />
     <ProjectReference Include="..\LogicaLaag\LogicaLaag.csproj" />
   </ItemGroup>
 
