@@ -33,12 +33,17 @@ namespace LogicaLaag.Logica
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public void ProbeerAanmaken(AfspraakDTO dto)
         {
             List<AfspraakDTO> afspraken = _dashboardData.AllesOphalenVoorDetailer(dto.DetailerID);
             if (IsDagVolGepland(afspraken, dto))
             {
-                throw new InvalidOperationException("Er zijn al 2 afspraken ingepland op deze dag!");
+                throw new InvalidOperationException("Er zijn al 2 afspraken ingepland op deze dag!"); //Catch exception in ui 
             }
             _data.Aanmaken(dto);
         }
