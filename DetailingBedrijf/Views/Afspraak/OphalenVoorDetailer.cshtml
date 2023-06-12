@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LogicaLaag.Models.AfspraakModel>
 
 @{
-    ViewData["Title"] = "OphalenVoorDetailer";
+    ViewData["Title"] = "Afspraken van Detailer";
 }
 
 <h1>OphalenVoorDetailer</h1>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.DatumEnTijd)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id = item.AfspraakID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AfspraakID }) |
+                @Html.ActionLink("Verwijderen", "Verwijderen", new { id = item.AfspraakID })
             </td>
         </tr>
 }

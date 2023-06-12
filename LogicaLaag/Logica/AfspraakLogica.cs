@@ -33,11 +33,12 @@ namespace LogicaLaag.Logica
 
         }
 
-        public void Aanmaken(AfspraakDTO dto)
+        public void ProbeerAanmaken(AfspraakDTO dto)
         {
-            if (dto.DatumEnTijd == null)
+            List<AfspraakDTO> afspraken = _dashboardData.AllesOphalenVoorDetailer(dto.DetailerID);
+            if (IsDagVolGepland(afspraken, dto))
             {
-                throw new InvalidDataException("De datum van een afspraak moet ingevuld zijn.");
+                throw new InvalidOperationException("Er zijn al 2 afspraken ingepland op deze dag!");
             }
             _data.Aanmaken(dto);
         }
@@ -51,6 +52,23 @@ namespace LogicaLaag.Logica
         {
            List<AfspraakModel> afspraken = _mapping.MapDTOLijstNaarModelLijst(_dashboardData.AllesOphalenVoorDetailer(detailerID));
             return afspraken;
+        }
+
+        public bool IsDagVolGepland(List<AfspraakDTO> afspraken, AfspraakDTO dto)
+        {
+            int i = 0;
+            foreach (AfspraakDTO afspraak in afspraken)
+            {
+                if (i == 2)
+                {
+                    return true;
+                }
+                else if (afspraak.DatumEnTijd == dto.DatumEnTijd)
+                {
+                    i++;
+                }
+            }
+            return false;
         }
     }
 }

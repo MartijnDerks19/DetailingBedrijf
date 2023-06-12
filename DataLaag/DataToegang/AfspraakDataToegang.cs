@@ -75,7 +75,7 @@ namespace DataLaag.DataToegang
 
         public void Aanmaken(AfspraakDTO afspraak)
         {
-            string query = "INSERT INTO afspraak (DetailerID, AutoID, DatumEnTijd) VALUES (@DetailerID, AutoID, DatumEnTijd)";
+            string query = "INSERT INTO afspraak (DetailerID, AutoID, DatumEnTijd) VALUES (@DetailerID, @AutoID, @DatumEnTijd)";
 
             using (MySqlConnection connection = new(_connectionString))
             {
@@ -127,9 +127,9 @@ namespace DataLaag.DataToegang
                         var afspraak = new AfspraakDTO()
                         {
                             AfspraakID = reader.GetInt32(0),
-                            DetailerID = reader.GetInt32(1),
-                            AutoID = reader.GetInt32(2),
-                            DatumEnTijd = reader.GetDateTime(3),
+                            AutoID = reader.GetInt32(1),
+                            DetailerID = reader.GetInt32(2),
+                            DatumEnTijd = (DateTime)reader.GetMySqlDateTime(3),
                         };
                         lijstVanAfspraken.Add(afspraak);
                     }

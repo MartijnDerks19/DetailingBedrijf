@@ -36,7 +36,7 @@ namespace DetailingBedrijf.Controllers
         [HttpPost]
         public IActionResult Aanmaken(AfspraakModel model)
         {
-            _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
+            _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -56,11 +56,27 @@ namespace DetailingBedrijf.Controllers
         }
 
         [HttpGet]
-        [Route("Afspraak/Ophalen/{detailerID}")]
+        [Route("Afspraak/OphalenVoorDetailer/{detailerID}")]
         public IActionResult OphalenVoorDetailer(int detailerID)
         {
             List<AfspraakModel> afsprakenVanDetailer = _logica.HaalOpVoorDetailer(detailerID);
             return View(afsprakenVanDetailer);
+        }
+
+        [HttpGet]
+        [Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
+        public IActionResult AanmakenVoorDetailer()
+        {
+            return View(new AfspraakModel());
+        }
+
+        [HttpPost]
+        [Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
+        public IActionResult AanmakenVoorDetailer(int detailerID, AfspraakModel model)
+        {
+            model.DetailerID = detailerID;
+            _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+            return RedirectToAction("Index", "Dashboard");
         }
 
     }
