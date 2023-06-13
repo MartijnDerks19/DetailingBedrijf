@@ -1,10 +1,13 @@
 ﻿using LogicaLaag.DTOs;
+using LogicaLaag.Exceptions;
 using LogicaLaag.Interfaces;
 using LogicaLaag.Mapping;
 using LogicaLaag.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,7 +46,11 @@ namespace LogicaLaag.Logica
             List<AfspraakDTO> afspraken = _dashboardData.AllesOphalenVoorDetailer(dto.DetailerID);
             if (IsDagVolGepland(afspraken, dto))
             {
-                throw new InvalidOperationException("Er zijn al 2 afspraken ingepland op deze dag!"); //Catch exception in ui 
+                throw new DagIsVolGeplandException("Datum is vol probeer een andere dag"); //Catch exception in ui 
+            }
+            else if (DeZaakIsGesloten(dto))
+            {
+                throw new DeZaakIsGeslotenException("Wij zijn helaas gesloten op maandag probeer een andere dag. ");
             }
             _data.Aanmaken(dto);
         }
@@ -59,7 +66,17 @@ namespace LogicaLaag.Logica
             return afspraken;
         }
 
-        public bool IsDagVolGepland(List<AfspraakDTO> afspraken, AfspraakDTO dto)
+        private bool DeZaakIsGesloten(AfspraakDTO dto)
+        {
+            DayOfWeek dag = dto.DatumEnTijd.DayOfWeek;
+            if (dag== DayOfWeek.Monday)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsDagVolGepland(List<AfspraakDTO> afspraken, AfspraakDTO dto)
         {
             int i = 0;
             foreach (AfspraakDTO afspraak in afspraken)

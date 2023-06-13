@@ -1,10 +1,12 @@
 ﻿using DataLaag.DataToegang;
 using LogicaLaag.DTOs;
+using LogicaLaag.Exceptions;
 using LogicaLaag.Interfaces;
 using LogicaLaag.Logica;
 using LogicaLaag.Mapping;
 using LogicaLaag.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace DetailingBedrijf.Controllers
 {
@@ -59,8 +61,8 @@ namespace DetailingBedrijf.Controllers
         [Route("Afspraak/OphalenVoorDetailer/{detailerID}")]
         public IActionResult OphalenVoorDetailer(int detailerID)
         {
-            List<AfspraakModel> afsprakenVanDetailer = _logica.HaalOpVoorDetailer(detailerID);
-            return View(afsprakenVanDetailer);
+            List<AfspraakModel> models = _logica.HaalOpVoorDetailer(detailerID);
+            return View(models);
         }
 
         [HttpGet]
@@ -70,13 +72,33 @@ namespace DetailingBedrijf.Controllers
             return View(new AfspraakModel());
         }
 
+
+        //Oude methode
+        //[HttpPost]
+        //[Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
+        //public IActionResult AanmakenVoorDetailer(int detailerID, AfspraakModel model)
+        //{
+        //    model.DetailerID = detailerID;
+        //    _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+        //    return RedirectToAction("Index", "Dashboard");
+        //}
+
+        //Nieuwe methode
         [HttpPost]
         [Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
         public IActionResult AanmakenVoorDetailer(int detailerID, AfspraakModel model)
         {
-            model.DetailerID = detailerID;
-            _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
-            return RedirectToAction("Index", "Dashboard");
+            try
+            {
+                model.DetailerID = detailerID;
+                _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+                return RedirectToAction("Index", "Dashboard");
+            }
+            catch (Exception divge)
+            {
+                Console.Write($"{divge.Message}\n {divge.InnerException}");
+                return RedirectToAction("Index", "Dashboard");
+            }
         }
 
     }
