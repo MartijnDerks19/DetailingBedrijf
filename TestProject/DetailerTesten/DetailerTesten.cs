@@ -1,14 +1,5 @@
 ﻿using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
 using LogicaLaag.Logica;
-using LogicaLaag.Mapping;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestProject.MockDataToegang;
 
 namespace TestProject.DetailerTesten

@@ -2,12 +2,6 @@
 using LogicaLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang 
 {
@@ -15,10 +9,15 @@ namespace DataLaag.DataToegang
     {
         private IConfiguration _configuration;
         private string _connectionString;
-        public AfspraakDataToegang(IConfiguration configuration)
+        // public AfspraakDataToegang(IConfiguration configuration)
+        // {
+        //     _configuration = configuration;
+        //     string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
+        //     _connectionString = connectionString;
+        // }
+
+        public AfspraakDataToegang(string connectionString)
         {
-            _configuration = configuration;
-            string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
             _connectionString = connectionString;
         }
 

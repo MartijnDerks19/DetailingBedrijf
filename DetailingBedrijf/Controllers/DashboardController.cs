@@ -46,7 +46,7 @@ namespace DetailingBedrijf.Controllers
 
         public IActionResult AfspraakInplannen(int detailerID)
         {
-            return RedirectToAction("Afspraak", "Aanmaken", detailerID);
+            return RedirectToAction("Aanmaken", "Afspraak", detailerID);
         }
     }
 }

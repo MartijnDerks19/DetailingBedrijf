@@ -17,8 +17,8 @@ namespace DetailingBedrijf.Controllers
 
         public AfspraakController(IConfiguration configuration)
         {
-            ICRUDCollectie<AfspraakDTO> _data = new AfspraakDataToegang(configuration);//
-            IDashboard _dashboardData = new AfspraakDataToegang(configuration);
+            ICRUDCollectie<AfspraakDTO> _data = new AfspraakDataToegang(HaalConnectionStringOp(configuration));
+            IDashboard _dashboardData = new AfspraakDataToegang(HaalConnectionStringOp(configuration));
             AfspraakLogica logica = new AfspraakLogica(_data, _dashboardData);
             _logica = logica;
         }
@@ -99,6 +99,12 @@ namespace DetailingBedrijf.Controllers
                 Console.Write($"{divge.Message}\n {divge.InnerException}");
                 return RedirectToAction("Index", "Dashboard");
             }
+        }
+
+        private string HaalConnectionStringOp(IConfiguration configuration)
+        {
+            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            return connectionString;
         }
 
     }
