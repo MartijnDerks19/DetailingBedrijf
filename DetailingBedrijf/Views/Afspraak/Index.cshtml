@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Aanmaken">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.DatumEnTijd)
             </td>
             <td>
-                @Html.ActionLink("Detailer", "Ophalen", new { id = item.AfspraakID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.AfspraakID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.AfspraakID })
+                @*@Html.ActionLink("Detailer", "Ophalen", new { id = item.AfspraakID }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.AfspraakID }) |
+                @Html.ActionLink("Delete", "Verwijderen", new { id = item.AfspraakID })
             </td>
         </tr>
 }
