@@ -14,12 +14,13 @@ namespace DetailingBedrijf.Controllers
     public class AfspraakController : Controller
     {
         private AfspraakLogica _logica;
+        private IConfiguration _configuration;
         private AfspraakMapping _mapping = new AfspraakMapping();
 
         public AfspraakController(IConfiguration configuration)
         {
-            IAfspraak _afspraakData = new AfspraakDataToegang(HaalConnectionStringOp(configuration));
-            IDetailer _detailerData = new DetailerDataToegang(HaalConnectionStringOp(configuration));
+            IAfspraak _afspraakData = new AfspraakDataToegang(configuration);
+            IDetailer _detailerData = new DetailerDataToegang(configuration);
             AfspraakLogica logica = new AfspraakLogica(_afspraakData, _detailerData);
             _logica = logica;
         }
@@ -104,7 +105,7 @@ namespace DetailingBedrijf.Controllers
 
         private string HaalConnectionStringOp(IConfiguration configuration)
         {
-            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            var connectionString = configuration.GetConnectionString("ConnectionString");
             return connectionString;
         }
 

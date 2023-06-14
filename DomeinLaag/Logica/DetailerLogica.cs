@@ -14,22 +14,31 @@ namespace DomeinLaag.Logica
     public class DetailerLogica
     {
         private IDetailer _data;
-        private DetailerMapping _mapping = new DetailerMapping();
+        private DetailerMapping _detailerMapping = new DetailerMapping();
+        private AfspraakMapping _afspraakMapping = new AfspraakMapping();
         public DetailerLogica(IDetailer data)
         {
             _data = data;
         }
         public List<DetailerModel> HaalAllesOp()
         {
-            List<DetailerModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
+            List<DetailerModel> models = _detailerMapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
             return models;
         }
 
         public DetailerModel HaalOpViaID(int id)
         {
-            DetailerModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
+            DetailerModel model = _detailerMapping.MapDTONaarModel(_data.OphalenOpID(id));
             return model;
 
+        }
+
+        public DetailerModel AfsprakenOphalenOpID(int id)
+        {
+            DetailerModel detailer = _detailerMapping.MapDTONaarModel(_data.OphalenOpID(id));
+            List<AfspraakModel> afspraken = _afspraakMapping.MapDTOLijstNaarModelLijst(_data.AfsprakenOphalenOpID(id));
+            detailer.AfsprakenDetailer = afspraken;
+            return detailer;
         }
 
         public void Aanmaken(DetailerDTO dto)

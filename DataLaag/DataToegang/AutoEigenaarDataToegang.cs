@@ -14,9 +14,11 @@ namespace DataLaag.DataToegang
     public class AutoEigenaarDataToegang : IAutoEigenaar
     {
         private string _connectionString;
-        public AutoEigenaarDataToegang(string connectionString)
+        private IConfiguration _configuration;
+        public AutoEigenaarDataToegang(IConfiguration configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
+            _connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
         }
 
         public List<AutoEigenaarDTO> AllesOphalen()
