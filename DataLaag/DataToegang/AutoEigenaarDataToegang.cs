@@ -1,5 +1,5 @@
-﻿using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
+﻿using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
@@ -11,14 +11,11 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    public class AutoEigenaarDataToegang : ICRUDCollectie<AutoEigenaarDTO>
+    public class AutoEigenaarDataToegang : IAutoEigenaar
     {
-        private IConfiguration _configuration;
         private string _connectionString;
-        public AutoEigenaarDataToegang(IConfiguration configuration)
+        public AutoEigenaarDataToegang(string connectionString)
         {
-            _configuration = configuration;
-            string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
             _connectionString = connectionString;
         }
 
@@ -46,6 +43,11 @@ namespace DataLaag.DataToegang
                 connection.Close();
             }
             return lijstVanAutoEigenaren;
+        }
+
+        public List<AutoDTO> AutosOphalenOpID(int eigenaarID)
+        {
+            throw new NotImplementedException();
         }
 
         public AutoEigenaarDTO OphalenOpID(int id)

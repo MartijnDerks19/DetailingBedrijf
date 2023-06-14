@@ -1,20 +1,13 @@
-﻿using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
+﻿using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 
 namespace DataLaag.DataToegang 
 {
-    public class AfspraakDataToegang : ICRUDCollectie<AfspraakDTO>, IDashboard
+    public class AfspraakDataToegang : IAfspraak
     {
-        private IConfiguration _configuration;
         private string _connectionString;
-        // public AfspraakDataToegang(IConfiguration configuration)
-        // {
-        //     _configuration = configuration;
-        //     string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
-        //     _connectionString = connectionString;
-        // }
 
         public AfspraakDataToegang(string connectionString)
         {

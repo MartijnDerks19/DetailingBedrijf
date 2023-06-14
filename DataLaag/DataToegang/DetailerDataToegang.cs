@@ -1,5 +1,5 @@
-﻿using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
+﻿using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
@@ -11,14 +11,11 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    public class DetailerDataToegang : ICRUDCollectie<DetailerDTO>
+    public class DetailerDataToegang : IDetailer
     {
-        private IConfiguration _configuration;
         private string _connectionString;
-        public DetailerDataToegang(IConfiguration configuration)
+        public DetailerDataToegang(string connectionString)
         {
-            _configuration = configuration;
-            string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
             _connectionString = connectionString;
         }
 
@@ -45,6 +42,11 @@ namespace DataLaag.DataToegang
                 connection.Close();
             }
             return lijstVanDetailers;
+        }
+
+        public List<AfspraakDTO> AfsprakenOphalenOpID(int detailerID)
+        {
+            throw new NotImplementedException();
         }
 
         public DetailerDTO OphalenOpID(int id)

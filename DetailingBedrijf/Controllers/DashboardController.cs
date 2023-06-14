@@ -1,9 +1,9 @@
 ﻿using DataLaag.DataToegang;
-using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
-using LogicaLaag.Logica;
-using LogicaLaag.Mapping;
-using LogicaLaag.Models;
+using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
+using DomeinLaag.Logica;
+using DomeinLaag.Mapping;
+using DomeinLaag.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DetailingBedrijf.Controllers
@@ -15,7 +15,7 @@ namespace DetailingBedrijf.Controllers
 
         public DashboardController(IConfiguration configuration)
         {
-            ICRUDCollectie<DetailerDTO> _data = new DetailerDataToegang(configuration);
+            IDetailer _data = new DetailerDataToegang(HaalConnectionStringOp(configuration));
             DetailerLogica logica = new DetailerLogica(_data);
             _logica = logica;
         }
@@ -47,6 +47,12 @@ namespace DetailingBedrijf.Controllers
         public IActionResult AfspraakInplannen(int detailerID)
         {
             return RedirectToAction("Aanmaken", "Afspraak", detailerID);
+        }
+        
+        private string HaalConnectionStringOp(IConfiguration configuration)
+        {
+            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            return connectionString;
         }
     }
 }

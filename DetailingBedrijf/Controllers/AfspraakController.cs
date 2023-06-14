@@ -1,10 +1,10 @@
 ﻿using DataLaag.DataToegang;
-using LogicaLaag.DTOs;
-using LogicaLaag.Exceptions;
-using LogicaLaag.Interfaces;
-using LogicaLaag.Logica;
-using LogicaLaag.Mapping;
-using LogicaLaag.Models;
+using DomeinLaag.DTOs;
+using DomeinLaag.Exceptions;
+using DomeinLaag.Interfaces;
+using DomeinLaag.Logica;
+using DomeinLaag.Mapping;
+using DomeinLaag.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using Microsoft.Extensions.Configuration.Ini;
@@ -18,9 +18,9 @@ namespace DetailingBedrijf.Controllers
 
         public AfspraakController(IConfiguration configuration)
         {
-            ICRUDCollectie<AfspraakDTO> _data = new AfspraakDataToegang(HaalConnectionStringOp(configuration));
-            IDashboard _dashboardData = new AfspraakDataToegang(HaalConnectionStringOp(configuration));
-            AfspraakLogica logica = new AfspraakLogica(_data, _dashboardData);
+            IAfspraak _afspraakData = new AfspraakDataToegang(HaalConnectionStringOp(configuration));
+            IDetailer _detailerData = new DetailerDataToegang(HaalConnectionStringOp(configuration));
+            AfspraakLogica logica = new AfspraakLogica(_afspraakData, _detailerData);
             _logica = logica;
         }
         public IActionResult Index()
@@ -98,7 +98,7 @@ namespace DetailingBedrijf.Controllers
             catch (Exception divge)
             {
                 Console.Write($"{divge.Message}\n {divge.InnerException}");
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("Index", "Dashboard"); //return Error view model met message. 
             }
         }
 

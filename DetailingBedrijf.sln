@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DetailingBedrijf", "DetailingBedrijf\DetailingBedrijf.csproj", "{AA331D34-2F5E-4EF8-8868-4D93B306374A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicaLaag", "LogicaLaag\LogicaLaag.csproj", "{CA33B6CA-C1C1-4668-89E9-22B6F34A5909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomeinLaag", "DomeinLaag\DomeinLaag.csproj", "{CA33B6CA-C1C1-4668-89E9-22B6F34A5909}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLaag", "DataLaag\DataLaag.csproj", "{8C72EBF6-CAC8-4B0B-8F1F-46EE1D164AE7}"
 EndProject

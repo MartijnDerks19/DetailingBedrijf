@@ -1,9 +1,9 @@
 ﻿using DataLaag.DataToegang;
-using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
-using LogicaLaag.Logica;
-using LogicaLaag.Mapping;
-using LogicaLaag.Models;
+using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
+using DomeinLaag.Logica;
+using DomeinLaag.Mapping;
+using DomeinLaag.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DetailingBedrijf.Controllers
@@ -15,8 +15,9 @@ namespace DetailingBedrijf.Controllers
 
         public AutoEigenaarController(IConfiguration configuration)
         {
-            ICRUDCollectie<AutoEigenaarDTO> _data = new AutoEigenaarDataToegang(configuration);//
-            AutoEigenaarLogica logica = new AutoEigenaarLogica(_data);
+            IAutoEigenaar _autoEigenaarData = new AutoEigenaarDataToegang(HaalConnectionStringOp(configuration));
+            IAuto _autoData = new AutoDataToegang(HaalConnectionStringOp(configuration));
+            AutoEigenaarLogica logica = new AutoEigenaarLogica(_autoEigenaarData, _autoData);
             _logica = logica;
         }
         public IActionResult Index()
@@ -52,6 +53,20 @@ namespace DetailingBedrijf.Controllers
         {
             _logica.VerwijderenOpID(id);
             return RedirectToAction("Index", "Dashboard");
+        }
+        
+        [HttpGet]
+        [Route("Auto/AutosVanEigenaarOpID/{eigenaarID:int}")]
+        public IActionResult AutosVanEigenaarOpID(int eigenaarID)
+        {
+            AutoEigenaarModel eigenaarEnAutos = _logica.HaalAutosOpVoorEigenaar(eigenaarID);
+            return View(eigenaarEnAutos);
+        }
+        
+        private string HaalConnectionStringOp(IConfiguration configuration)
+        {
+            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            return connectionString;
         }
     }
 }

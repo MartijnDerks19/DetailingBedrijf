@@ -1,5 +1,5 @@
-﻿using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
+﻿using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
@@ -10,14 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
-    public class AutoDataToegang : ICRUDCollectie<AutoDTO>
+    public class AutoDataToegang : IAuto
     {
-        private IConfiguration _configuration;
         private string _connectionString;
-        public AutoDataToegang(IConfiguration configuration)
+        public AutoDataToegang(string connectionString)
         {
-            _configuration = configuration;
-            string connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
             _connectionString = connectionString;
         }
         public List<AutoDTO> AllesOphalen()

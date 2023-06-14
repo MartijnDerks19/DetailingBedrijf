@@ -1,5 +1,5 @@
-﻿using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
+﻿using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using Xunit;
 
 namespace TestProject.MockDataToegang
 {
-    public class DetailerMockData : ICRUDCollectie<DetailerDTO>
+    public class DetailerMockData : IDetailer
     {
         public DetailerDTO DTO { get; set; }
         public int VerwijderID { get; set; }
@@ -21,6 +21,11 @@ namespace TestProject.MockDataToegang
         public List<DetailerDTO> AllesOphalen()
         {
             return new List<DetailerDTO>();
+        }
+
+        public List<AfspraakDTO> AfsprakenOphalenOpID(int detailerID)
+        {
+            throw new NotImplementedException();
         }
 
         public DetailerDTO OphalenOpID(int id)
@@ -35,27 +40,17 @@ namespace TestProject.MockDataToegang
 
         public void Aanmaken(DetailerDTO detailer)
         {
-            ZetDetailerDTOGelijkAanInputVanAanmaakMethode(detailer);
+            DTO = detailer;
         }
 
         public void VerwijderenOpID(int id)
         {
-            ZetIDGelijkAanInputVanVerwijderMethode(id);
+            VerwijderID = id;
         }
 
         public void AanpassenOpID(int id, DetailerDTO entiteit)
         {
             throw new NotImplementedException();
-        }
-
-        public void ZetDetailerDTOGelijkAanInputVanAanmaakMethode(DetailerDTO dto)
-        {
-            DTO = dto;
-        }
-
-        public void ZetIDGelijkAanInputVanVerwijderMethode(int id)
-        {
-            VerwijderID = id;
         }
     }
 }

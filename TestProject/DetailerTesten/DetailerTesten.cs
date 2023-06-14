@@ -1,5 +1,5 @@
-﻿using LogicaLaag.DTOs;
-using LogicaLaag.Logica;
+﻿using DomeinLaag.DTOs;
+using DomeinLaag.Logica;
 using TestProject.MockDataToegang;
 
 namespace TestProject.DetailerTesten

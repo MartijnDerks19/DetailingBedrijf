@@ -1,14 +1,15 @@
 using DataLaag.DataToegang;
-using LogicaLaag.DTOs;
-using LogicaLaag.Interfaces;
+using DomeinLaag.DTOs;
+using DomeinLaag.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<ICRUDCollectie<DetailerDTO>, DetailerDataToegang>();
-builder.Services.AddTransient<ICRUDCollectie<AutoDTO>, AutoDataToegang>();
-builder.Services.AddTransient<ICRUDCollectie<AutoEigenaarDTO>, AutoEigenaarDataToegang>();
+builder.Services.AddTransient<IDetailer, DetailerDataToegang>();
+builder.Services.AddTransient<IAuto, AutoDataToegang>();
+builder.Services.AddTransient<IAutoEigenaar, AutoEigenaarDataToegang>();
+builder.Services.AddTransient<IAfspraak, AfspraakDataToegang>();
 
 var app = builder.Build();
 

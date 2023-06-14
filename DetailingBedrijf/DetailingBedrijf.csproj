@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataLaag\DataLaag.csproj" />
-    <ProjectReference Include="..\LogicaLaag\LogicaLaag.csproj" />
+    <ProjectReference Include="..\DomeinLaag\DomeinLaag.csproj" />
   </ItemGroup>
 
 </Project>
