@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Razor.Language.Extensions
+@model IEnumerable<DomeinLaag.Models.AfspraakModel>
+
+@{
+    ViewData["Title"] = "OphalenVoorDetailer";
+}
+
+<h1>OphalenVoorDetailer</h1>
+
+<p>
+    <a asp-action="Aanmaken">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DetailerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AfspraakID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumEnTijd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AfspraakID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumEnTijd)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Afspraak",new { id = item.AfspraakID }) |
+                @Html.ActionLink("Delete", "Verwijderen", "Afspraak", new { id = item.AfspraakID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

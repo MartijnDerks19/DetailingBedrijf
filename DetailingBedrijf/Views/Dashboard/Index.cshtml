@@ -27,7 +27,7 @@
                 <th>
                     <button class="btn btn-outline-danger">@Html.DisplayNameFor(model => model.Naam)</button>
                 </th>
-                <th>
+@*                <th>
                     <button asp-controller="Dashboard" class="btn btn-outline-primary">@Html.ActionLink("Auto's aanpasssen", "AutoAanpassen")</button>
                 </th>
                 <th>
@@ -35,7 +35,7 @@
                 </th>
                 <th>
                     <button asp-controller="Dashboard" type="button" class="btn btn-outline-primary">@Html.ActionLink("Afspraken aanpassen", "AfsprakenAanpassen") </button>
-                </th>
+                </th>*@
                 <th></th>
             </tr>
         </thead>
@@ -50,7 +50,7 @@
                         @Html.DisplayFor(modelItem => item.Naam)
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primar">@Html.ActionLink("Afspraken","OphalenVoorDetailer", "Afspraak", new { id = item.DetailerID })</button>
+                        <button type="button" class="btn btn-primar">@Html.ActionLink("Afspraken","OphalenVoorDetailer", "Detailer", new { id = item.DetailerID })</button>
                         <button type="button" class="btn btn-primar">@Html.ActionLink("Afspraak Aanmaken","AanmakenVoorDetailer", "Afspraak", new { id = item.DetailerID })</button>
                     </td>
                 </tr>

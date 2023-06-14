@@ -14,9 +14,11 @@ namespace DataLaag.DataToegang
     public class DetailerDataToegang : IDetailer
     {
         private string _connectionString;
-        public DetailerDataToegang(string connectionString)
+        private IConfiguration _configuration;
+        public DetailerDataToegang(IConfiguration configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
+            _connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
         }
 
         public List<DetailerDTO> AllesOphalen()
@@ -69,6 +71,34 @@ namespace DataLaag.DataToegang
                 connection.Close();
             }
             return detailer;
+        }
+
+        public List<AfspraakDTO> AllesOphalenVoorDetailer(int detailerID)
+        {
+            List<AfspraakDTO> lijstVanAfspraken = new List<AfspraakDTO>();
+            string query = "SELECT * FROM afspraak WHERE DetailerID = @DetailerID";
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    cmd.Parameters.Add("@DetailerID", MySqlDbType.Int64, 255).Value = detailerID;
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var afspraak = new AfspraakDTO()
+                        {
+                            AfspraakID = reader.GetInt32(0),
+                            AutoID = reader.GetInt32(1),
+                            DetailerID = reader.GetInt32(2),
+                            DatumEnTijd = (DateTime)reader.GetMySqlDateTime(3),
+                        };
+                        lijstVanAfspraken.Add(afspraak);
+                    }
+                }
+                connection.Close();
+            }
+            return lijstVanAfspraken;
         }
 
         public void Aanmaken(DetailerDTO detailer)

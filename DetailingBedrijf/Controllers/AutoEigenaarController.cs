@@ -15,8 +15,8 @@ namespace DetailingBedrijf.Controllers
 
         public AutoEigenaarController(IConfiguration configuration)
         {
-            IAutoEigenaar _autoEigenaarData = new AutoEigenaarDataToegang(HaalConnectionStringOp(configuration));
-            IAuto _autoData = new AutoDataToegang(HaalConnectionStringOp(configuration));
+            IAutoEigenaar _autoEigenaarData = new AutoEigenaarDataToegang(configuration);
+            IAuto _autoData = new AutoDataToegang(configuration);
             AutoEigenaarLogica logica = new AutoEigenaarLogica(_autoEigenaarData, _autoData);
             _logica = logica;
         }
@@ -65,7 +65,7 @@ namespace DetailingBedrijf.Controllers
         
         private string HaalConnectionStringOp(IConfiguration configuration)
         {
-            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            var connectionString = configuration.GetConnectionString("ConnectionString");
             return connectionString;
         }
     }

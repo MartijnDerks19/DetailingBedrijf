@@ -16,7 +16,7 @@ namespace DetailingBedrijf.Controllers
 
         public DetailerController(IConfiguration configuration)
         {
-            IDetailer _data = new DetailerDataToegang(HaalConnectionStringOp(configuration));
+            IDetailer _data = new DetailerDataToegang(configuration);
             DetailerLogica logica = new DetailerLogica(_data);
             _logica = logica;
         }
@@ -54,10 +54,18 @@ namespace DetailingBedrijf.Controllers
             _logica.Verwijderen(id);
             return RedirectToAction("Index", "Dashboard");
         }
-        
+
+        [HttpGet]
+        [Route("Detailer/AfsprakenOphalen/{detailerID:int}")]
+        public IActionResult OphalenVoorDetailer(int detailerID)
+        {
+            DetailerModel model = _logica.AfsprakenOphalenOpID(detailerID);
+            return View(model.AfsprakenDetailer);
+        }
+
         private string HaalConnectionStringOp(IConfiguration configuration)
         {
-            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            var connectionString = configuration.GetConnectionString("ConnectionString");
             return connectionString;
         }
     }

@@ -15,7 +15,7 @@ namespace DetailingBedrijf.Controllers
 
         public DashboardController(IConfiguration configuration)
         {
-            IDetailer _data = new DetailerDataToegang(HaalConnectionStringOp(configuration));
+            IDetailer _data = new DetailerDataToegang(configuration);
             DetailerLogica logica = new DetailerLogica(_data);
             _logica = logica;
         }
@@ -51,7 +51,7 @@ namespace DetailingBedrijf.Controllers
         
         private string HaalConnectionStringOp(IConfiguration configuration)
         {
-            string connectionString = configuration.GetSection("ConnectionSettings")["ConnectionString"];
+            var connectionString = configuration.GetConnectionString("ConnectionString");
             return connectionString;
         }
     }

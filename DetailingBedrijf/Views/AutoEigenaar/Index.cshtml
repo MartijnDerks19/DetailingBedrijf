@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.ActionLink("Auto's ophalen", "AutosVanEigenaarOpID", "Auto",new { id = item.EigenaarID }) |
+                @Html.ActionLink("Auto's ophalen", "AutosVanEigenaarOpID", "AutoEigenaar",new { id = item.EigenaarID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.EigenaarID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.EigenaarID })
             </td>

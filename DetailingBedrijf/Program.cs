@@ -1,6 +1,8 @@
+using System.Drawing;
 using DataLaag.DataToegang;
 using DomeinLaag.DTOs;
 using DomeinLaag.Interfaces;
+using Org.BouncyCastle.Crypto.Parameters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=AutoEigenaar}/{action=Index}/{id?}");
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
 app.Run();

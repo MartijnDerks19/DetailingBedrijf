@@ -13,10 +13,15 @@ namespace DataLaag.DataToegang
     public class AutoDataToegang : IAuto
     {
         private string _connectionString;
-        public AutoDataToegang(string connectionString)
+        private IConfiguration _configuration;
+
+        public AutoDataToegang(IConfiguration configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
+            _connectionString = _configuration.GetSection("ConnectionSettings")["ConnectionString"];
         }
+
+
         public List<AutoDTO> AllesOphalen()
         {
             List<AutoDTO> lijstVanAutos = new List<AutoDTO>();

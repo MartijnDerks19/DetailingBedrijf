@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\Source\\Repos\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
       "projectName": "DomeinLaag",
-      "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
+      "projectPath": "C:\\Users\\marti\\Source\\Repos\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
       "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\obj\\",
+      "outputPath": "C:\\Users\\marti\\Source\\Repos\\detailingbedrijf\\DomeinLaag\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
