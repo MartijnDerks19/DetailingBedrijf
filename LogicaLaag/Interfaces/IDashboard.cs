@@ -10,5 +10,6 @@ namespace LogicaLaag.Interfaces
     public interface IDashboard
     {
         List<AfspraakDTO> AllesOphalenVoorDetailer(int detailerID);
+        List<AutoDTO> AutosOphalenVoorEigenaar(int eigenaarID);
     }
 }

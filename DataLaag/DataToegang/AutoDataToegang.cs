@@ -47,6 +47,35 @@ namespace DataLaag.DataToegang
             }
             return lijstVanAutos;
         }
+        
+        public List<AutoDTO> AllesOphalenVoorEigenaar(int id)
+        {
+            List<AutoDTO> lijstVanAutos = new List<AutoDTO>();
+            string query = "SELECT auto.AutoID,auto.Merk, auto.Type, auto.Bouwjaar, auto.EigenaarID FROM auto INNER JOIN eigenaar ON auto.EigenaarID = eigenaar.EigenaarID where EigenaarID = @ID";
+            using (MySqlConnection connection = new MySqlConnection(_connectionString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    cmd.Parameters.Add("@ID", MySqlDbType.Int64, 255).Value = id;
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var auto = new AutoDTO()
+                        {
+                            AutoID = reader.GetInt32(0),
+                            Merk = reader.GetString(1),
+                            Type = reader.GetString(2),
+                            Bouwjaar = reader.GetInt32(3),
+                            EigenaarID = reader.GetInt32(4),
+                        };
+                        lijstVanAutos.Add(auto);
+                    }
+                }
+                connection.Close();
+            }
+            return lijstVanAutos;
+        }
 
         public AutoDTO OphalenOpID(int id)
         {

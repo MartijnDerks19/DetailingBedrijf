@@ -7,6 +7,7 @@ using LogicaLaag.Mapping;
 using LogicaLaag.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
+using Microsoft.Extensions.Configuration.Ini;
 
 namespace DetailingBedrijf.Controllers
 {
@@ -43,7 +44,7 @@ namespace DetailingBedrijf.Controllers
         }
 
         [HttpGet]
-        [Route("Afspraak/Details/{id}")]
+        [Route("Afspraak/Details/{id:int}")]
         public IActionResult Details(int id)
         {
             AfspraakModel model = _logica.HaalOpViaID(id);
@@ -58,7 +59,7 @@ namespace DetailingBedrijf.Controllers
         }
 
         [HttpGet]
-        [Route("Afspraak/OphalenVoorDetailer/{detailerID}")]
+        [Route("Afspraak/OphalenVoorDetailer/{detailerID:int}")]
         public IActionResult OphalenVoorDetailer(int detailerID)
         {
             List<AfspraakModel> models = _logica.HaalOpVoorDetailer(detailerID);
@@ -66,7 +67,7 @@ namespace DetailingBedrijf.Controllers
         }
 
         [HttpGet]
-        [Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
+        [Route("Afspraak/AanmakenVoorDetailer/{detailerID:int}")]
         public IActionResult AanmakenVoorDetailer()
         {
             return View(new AfspraakModel());
@@ -85,7 +86,7 @@ namespace DetailingBedrijf.Controllers
 
         //Nieuwe methode
         [HttpPost]
-        [Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
+        [Route("Afspraak/AanmakenVoorDetailer/{detailerID:int}")]
         public IActionResult AanmakenVoorDetailer(int detailerID, AfspraakModel model)
         {
             try

@@ -15,8 +15,10 @@ namespace DetailingBedrijf.Controllers
 
         public AutoController(IConfiguration configuration)
         {
-            ICRUDCollectie<AutoDTO> _data = new AutoDataToegang(configuration);//
-            AutoLogica logica = new AutoLogica(_data);
+            ICRUDCollectie<AutoDTO> _autoData = new AutoDataToegang(configuration);
+            ICRUDCollectie<AutoEigenaarDTO> _eigenaarData = new AutoEigenaarDataToegang(configuration);
+            IDashboard _dashboardData = new AutoDataToegang(configuration);
+            AutoLogica logica = new AutoLogica(_autoData, _eigenaarData);
             _logica = logica;
         }
         public IActionResult Index()
@@ -52,6 +54,14 @@ namespace DetailingBedrijf.Controllers
         {
             _logica.Verwijderen(id);
             return RedirectToAction("Index", "Dashboard");
+        }
+        
+        [HttpGet]
+        [Route("Auto/AutosVanEigenaarOpID/{eigenaarID:int}")]
+        public IActionResult AutosVanEigenaarOpID(int eigenaarID)
+        {
+            AutoEigenaarModel eigenaarEnAutos = _logica.HaalAutosOpVoorEigenaar(eigenaarID);
+            return View(eigenaarEnAutos);
         }
     }
 }

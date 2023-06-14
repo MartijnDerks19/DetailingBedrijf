@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ICRUDCollectie<DetailerDTO>, DetailerDataToegang>();
+builder.Services.AddTransient<ICRUDCollectie<AutoDTO>, AutoDataToegang>();
+builder.Services.AddTransient<ICRUDCollectie<AutoEigenaarDTO>, AutoEigenaarDataToegang>();
 
 var app = builder.Build();
 
@@ -27,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+    pattern: "{controller=AutoEigenaar}/{action=Index}/{id?}");
 
 app.Run();

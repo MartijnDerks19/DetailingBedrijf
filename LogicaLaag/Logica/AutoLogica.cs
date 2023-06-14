@@ -12,21 +12,26 @@ namespace LogicaLaag.Logica
 {
     public class AutoLogica
     {
-        private ICRUDCollectie<AutoDTO> _data;
-        private AutoMapping _mapping = new AutoMapping();
-        public AutoLogica(ICRUDCollectie<AutoDTO> data)
+        private ICRUDCollectie<AutoDTO> _autoData;
+        private ICRUDCollectie<AutoEigenaarDTO> _eigenaarData;
+        private IDashboard _dashboardData;
+        private AutoMapping _autoMapping = new AutoMapping();
+        private AutoEigenaarMapping _eigenaarMapping = new AutoEigenaarMapping();
+        public AutoLogica(ICRUDCollectie<AutoDTO> autoData, ICRUDCollectie<AutoEigenaarDTO> eigenaarData, IDashboard dashboardData)
         {
-            _data = data;
+            _autoData = autoData;
+            _eigenaarData = eigenaarData;
+            _dashboardData = dashboardData;
         }
         public List<AutoModel> HaalAllesOp()
         {
-            List<AutoModel> models = _mapping.MapDTOLijstNaarModelLijst(_data.AllesOphalen());
+            List<AutoModel> models = _autoMapping.MapDTOLijstNaarModelLijst(_autoData.AllesOphalen());
             return models;
         }
 
         public AutoModel HaalOpViaID(int id)
         {
-            AutoModel model = _mapping.MapDTONaarModel(_data.OphalenOpID(id));
+            AutoModel model = _autoMapping.MapDTONaarModel(_autoData.OphalenOpID(id));
             return model;
 
         }
@@ -37,12 +42,21 @@ namespace LogicaLaag.Logica
             {
                 throw new InvalidDataException("Het merk van een auto moet ingevuld zijn!");
             }
-            _data.Aanmaken(dto);
+            _autoData.Aanmaken(dto);
         }
 
         public void Verwijderen(int id)
         {
-            _data.VerwijderenOpID(id);
+            _autoData.VerwijderenOpID(id);
+        }
+
+        public AutoEigenaarModel HaalAutosOpVoorEigenaar(int eigenaarID)
+        {
+            AutoEigenaarDTO dto = _eigenaarData.OphalenOpID(eigenaarID);
+            AutoEigenaarModel model = _eigenaarMapping.MapDTONaarModel(dto);
+            List<AutoDTO> autos = _dashboardData.AutosOphalenVoorEigenaar(eigenaarID);
+            model.AutosEigenaar = _autoMapping.MapDTOLijstNaarModelLijst(autos);
+            return model;
         }
     }
 }

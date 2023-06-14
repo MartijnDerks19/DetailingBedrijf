@@ -137,5 +137,10 @@ namespace DataLaag.DataToegang
             }
             return lijstVanAfspraken;
         }
+
+        public List<AutoDTO> AutosOphalenVoorEigenaar(int eigenaarID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
