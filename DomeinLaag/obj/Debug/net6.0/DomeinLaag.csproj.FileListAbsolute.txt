@@ -1,0 +1,12 @@
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\bin\Debug\net6.0\DomeinLaag.deps.json
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\bin\Debug\net6.0\DomeinLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\bin\Debug\net6.0\DomeinLaag.pdb
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.csproj.AssemblyReference.cache
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.AssemblyInfoInputs.cache
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.AssemblyInfo.cs
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.csproj.CoreCompileInputs.cache
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\refint\DomeinLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\DomeinLaag.pdb
+C:\Users\marti\RiderProjects\detailingbedrijf\DomeinLaag\obj\Debug\net6.0\ref\DomeinLaag.dll

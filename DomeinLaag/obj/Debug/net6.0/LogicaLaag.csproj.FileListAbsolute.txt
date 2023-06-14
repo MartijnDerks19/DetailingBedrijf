@@ -1,0 +1,12 @@
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\bin\Debug\net6.0\LogicaLaag.deps.json
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\bin\Debug\net6.0\LogicaLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\bin\Debug\net6.0\LogicaLaag.pdb
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.csproj.AssemblyReference.cache
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.AssemblyInfoInputs.cache
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.AssemblyInfo.cs
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.csproj.CoreCompileInputs.cache
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\refint\LogicaLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\LogicaLaag.pdb
+C:\Users\marti\RiderProjects\detailingbedrijf\LogicaLaag\obj\Debug\net6.0\ref\LogicaLaag.dll
