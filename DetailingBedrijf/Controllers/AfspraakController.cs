@@ -98,8 +98,9 @@ namespace DetailingBedrijf.Controllers
             }
             catch (Exception divge)
             {
-                Console.Write($"{divge.Message}\n {divge.InnerException}");
+                Console.Write($"{divge.Message}\n {divge.InnerException}"); //Eerst specifieke catch daarna generiek.
                 return RedirectToAction("Index", "Dashboard"); //return Error view model met message. 
+                //DataAnnotations
             }
         }
 

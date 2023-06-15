@@ -36,12 +36,13 @@ namespace DomeinLaag.Logica
             return model;
 
         }
-
+        
         /// <summary>
         /// 
         /// </summary>
         /// <param name="dto"></param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="DagIsVolGeplandException"></exception>
+        /// <exception cref="DeZaakIsGeslotenException"></exception>
         public void ProbeerAanmaken(AfspraakDTO dto)
         {
             List<AfspraakDTO> afspraken = _detailerData.AfsprakenOphalenOpID(dto.DetailerID);
