@@ -10,18 +10,18 @@ namespace DetailingBedrijf.Controllers
 {
     public class AutoController : Controller
     {
-        private AutoLogica _logica;
+        private AutoCollectie _collectie;
         private AutoMapping _mapping = new AutoMapping();
 
         public AutoController(IConfiguration configuration)
         {
             IAuto _autoData = new AutoDataToegang(configuration);
-            AutoLogica logica = new AutoLogica(_autoData);
-            _logica = logica;
+            AutoCollectie collectie = new AutoCollectie(_autoData);
+            _collectie = collectie;
         }
         public IActionResult Index()
         {
-            List<AutoModel> models = _logica.HaalAllesOp();
+            List<AutoModel> models = _collectie.HaalAllesOp();
             return View(models);
         }
 
@@ -35,7 +35,7 @@ namespace DetailingBedrijf.Controllers
         [HttpPost]
         public IActionResult Aanmaken(AutoModel model)
         {
-            _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
+            _collectie.Aanmaken(_mapping.MapModelNaarDTO(model));
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -43,14 +43,14 @@ namespace DetailingBedrijf.Controllers
         [Route("Auto/Details/{id}")]
         public IActionResult Details(int id)
         {
-            AutoModel model = _logica.HaalOpViaID(id);
+            AutoModel model = _collectie.HaalOpViaID(id);
             return View(model);
         }
 
         [Route("Detailer/Verwijderen/{id}")]
         public IActionResult Verwijderen(int id)
         {
-            _logica.Verwijderen(id);
+            _collectie.Verwijderen(id);
             return RedirectToAction("Index", "Dashboard");
         }
 

@@ -6,15 +6,15 @@ namespace TestProject.DetailerTesten
 {
     public class DetailerTesten
     {
-        private DetailerLogica _logica;
+        private DetailerCollectie _collectie;
         private DetailerMockData _mock;
 
 
         public DetailerTesten()
         {
             DetailerMockData mock = new DetailerMockData();
-            DetailerLogica logica = new DetailerLogica(mock);
-            _logica = logica;
+            DetailerCollectie collectie = new DetailerCollectie(mock);
+            _collectie = collectie;
             _mock = mock;
         }
 
@@ -26,7 +26,7 @@ namespace TestProject.DetailerTesten
             //Arrange
             int expectedID = id;
             //Act
-            _logica.Verwijderen(id);
+            _collectie.Verwijderen(id);
 
             //Assert
             Assert.Equal(expectedID, _mock.VerwijderID);
@@ -43,7 +43,7 @@ namespace TestProject.DetailerTesten
             };
 
             //Act
-            _logica.Aanmaken(dto);
+            _collectie.Aanmaken(dto);
 
             //Assert
             Assert.Equal(dto.Naam, _mock.DTO.Naam);
@@ -62,7 +62,7 @@ namespace TestProject.DetailerTesten
             };
 
             //Act 
-            var actualErrorMessage = Assert.Throws<InvalidDataException>(() => _logica.Aanmaken(dtoZonderNaam));
+            var actualErrorMessage = Assert.Throws<InvalidDataException>(() => _collectie.Aanmaken(dtoZonderNaam));
 
             //Assert
             Assert.Equal(expectedExceptionMessage, actualErrorMessage.Message);

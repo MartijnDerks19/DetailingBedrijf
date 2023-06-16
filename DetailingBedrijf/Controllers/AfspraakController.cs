@@ -13,7 +13,7 @@ namespace DetailingBedrijf.Controllers
 {
     public class AfspraakController : Controller
     {
-        private AfspraakLogica _logica;
+        private AfspraakCollectie _collectie;
         private IConfiguration _configuration;
         private AfspraakMapping _mapping = new AfspraakMapping();
 
@@ -21,12 +21,12 @@ namespace DetailingBedrijf.Controllers
         {
             IAfspraak _afspraakData = new AfspraakDataToegang(configuration);
             IDetailer _detailerData = new DetailerDataToegang(configuration);
-            AfspraakLogica logica = new AfspraakLogica(_afspraakData, _detailerData);
-            _logica = logica;
+            AfspraakCollectie collectie = new AfspraakCollectie(_afspraakData, _detailerData);
+            _collectie = collectie;
         }
         public IActionResult Index()
         {
-            List<AfspraakModel> models = _logica.HaalAllesOp();
+            List<AfspraakModel> models = _collectie.HaalAllesOp();
             return View(models);
         }
 
@@ -40,7 +40,7 @@ namespace DetailingBedrijf.Controllers
         [HttpPost]
         public IActionResult Aanmaken(AfspraakModel model)
         {
-            _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+            _collectie.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -48,14 +48,14 @@ namespace DetailingBedrijf.Controllers
         [Route("Afspraak/Details/{id:int}")]
         public IActionResult Details(int id)
         {
-            AfspraakModel model = _logica.HaalOpViaID(id);
+            AfspraakModel model = _collectie.HaalOpViaID(id);
             return View(model);
         }
 
         [Route("Afspraak/Verwijderen/{id}")]
         public IActionResult Verwijderen(int id)
         {
-            _logica.Verwijderen(id);
+            _collectie.Verwijderen(id);
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -63,7 +63,7 @@ namespace DetailingBedrijf.Controllers
         [Route("Afspraak/OphalenVoorDetailer/{detailerID:int}")]
         public IActionResult OphalenVoorDetailer(int detailerID)
         {
-            List<AfspraakModel> models = _logica.HaalOpVoorDetailer(detailerID);
+            List<AfspraakModel> models = _collectie.HaalOpVoorDetailer(detailerID);
             return View(models);
         }
 
@@ -93,7 +93,7 @@ namespace DetailingBedrijf.Controllers
             try
             {
                 model.DetailerID = detailerID;
-                _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+                _collectie.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
                 return RedirectToAction("Index", "Dashboard");
             }
             catch (Exception divge)

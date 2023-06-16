@@ -10,18 +10,18 @@ namespace DetailingBedrijf.Controllers
 {
     public class DashboardController : Controller
     {
-        private DetailerLogica _logica;
+        private DetailerCollectie _collectie;
         private DetailerMapping _mapping = new DetailerMapping();
 
         public DashboardController(IConfiguration configuration)
         {
             IDetailer _data = new DetailerDataToegang(configuration);
-            DetailerLogica logica = new DetailerLogica(_data);
-            _logica = logica;
+            DetailerCollectie collectie = new DetailerCollectie(_data);
+            _collectie = collectie;
         }
         public IActionResult Index()
         {
-            List<DetailerModel> models = _logica.HaalAllesOp();
+            List<DetailerModel> models = _collectie.HaalAllesOp();
             return View(models);
         }
 

@@ -11,18 +11,18 @@ namespace DetailingBedrijf.Controllers
 { 
     public class DetailerController : Controller
     {
-        private DetailerLogica _logica;
+        private DetailerCollectie _collectie;
         private DetailerMapping _mapping = new DetailerMapping();
 
         public DetailerController(IConfiguration configuration)
         {
             IDetailer _data = new DetailerDataToegang(configuration);
-            DetailerLogica logica = new DetailerLogica(_data);
-            _logica = logica;
+            DetailerCollectie collectie = new DetailerCollectie(_data);
+            _collectie = collectie;
         }
         public IActionResult Index()
         {
-            List<DetailerModel> models = _logica.HaalAllesOp();
+            List<DetailerModel> models = _collectie.HaalAllesOp();
             return View(models);
         }
 
@@ -36,7 +36,7 @@ namespace DetailingBedrijf.Controllers
         [HttpPost]
         public IActionResult Aanmaken(DetailerModel model)
         {
-            _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
+            _collectie.Aanmaken(_mapping.MapModelNaarDTO(model));
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -44,14 +44,14 @@ namespace DetailingBedrijf.Controllers
         [Route("Detailer/Details/{id}")]
         public IActionResult Details(int id)
         {
-            DetailerModel model = _logica.HaalOpViaID(id);
+            DetailerModel model = _collectie.HaalOpViaID(id);
             return View(model);
         }
 
         [Route("Detailer/Verwijderen/{id}")]
         public IActionResult Verwijderen(int id)
         {
-            _logica.Verwijderen(id);
+            _collectie.Verwijderen(id);
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -59,7 +59,7 @@ namespace DetailingBedrijf.Controllers
         [Route("Detailer/AfsprakenOphalen/{detailerID:int}")]
         public IActionResult OphalenVoorDetailer(int detailerID)
         {
-            DetailerModel model = _logica.AfsprakenOphalenOpID(detailerID);
+            DetailerModel model = _collectie.AfsprakenOphalenOpID(detailerID);
             return View(model.AfsprakenDetailer);
         }
 

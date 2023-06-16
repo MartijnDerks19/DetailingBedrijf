@@ -12,5 +12,8 @@ namespace DomeinLaag.Models
         public int AutoID { get; set; }
         public int AfspraakID { get; set; }
         public DateTime DatumEnTijd { get; set; }
+        
+        //ToDo: Dit zou misschien een geschikte plek kunnen zijn om een aantal check methodes toe te voegen. Zodat je aan de model zelf kan vragen of er een afspraak gepland kan worden 
+        //ToDo: En wanneer de eerstvolgende vrije dag is. 
     }
 }

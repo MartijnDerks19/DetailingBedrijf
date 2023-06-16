@@ -10,14 +10,14 @@ using DomeinLaag.Models;
 
 namespace DomeinLaag.Logica
 {
-    public class AutoEigenaarLogica
+    public class AutoEigenaarCollectie
     {
         private IAutoEigenaar _eigenaarData;
         private IAuto _autoData;
         private AutoEigenaarMapping _eigenaarMapping = new AutoEigenaarMapping();
         private AutoMapping _autoMapping = new AutoMapping();
         
-        public AutoEigenaarLogica(IAutoEigenaar eigenaarData, IAuto autoData)
+        public AutoEigenaarCollectie(IAutoEigenaar eigenaarData, IAuto autoData)
         {
             _eigenaarData = eigenaarData;
             _autoData = autoData;

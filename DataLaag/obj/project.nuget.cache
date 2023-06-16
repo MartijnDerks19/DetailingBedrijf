@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eAXjquQsrAhDJv9LhpFSVBcaCdGQuH2W1Uj1Ezov8uOUWGdwLKjIQLgvadhStrDhwjxuxQdgLhSU67hPNagm2Q==",
+  "dgSpecHash": "uqgOHyJOsA+QNjQ7PcNOfzOBdr/XOUNIdLWgr1I5ktkCa69jR+G8gLzSryfFlQQx6VCXSnh9NZkvqtid6NXpZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marti\\Source\\Repos\\detailingbedrijf\\DataLaag\\DataLaag.csproj",
+  "projectFilePath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DataLaag\\DataLaag.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",

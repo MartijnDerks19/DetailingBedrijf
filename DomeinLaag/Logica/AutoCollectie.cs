@@ -5,11 +5,11 @@ using DomeinLaag.Models;
 
 namespace DomeinLaag.Logica
 {
-    public class AutoLogica
+    public class AutoCollectie
     {
         private IAuto _data;
         private AutoMapping _mapping = new AutoMapping();
-        public AutoLogica(IAuto data)
+        public AutoCollectie(IAuto data)
         {
             _data = data;
         }

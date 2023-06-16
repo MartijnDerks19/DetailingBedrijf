@@ -13,12 +13,12 @@ using DomeinLaag.Models;
 
 namespace DomeinLaag.Logica
 {
-    public class AfspraakLogica
+    public class AfspraakCollectie
     {
         private IAfspraak _afspraakData;
         private IDetailer _detailerData;
         private AfspraakMapping _mapping = new AfspraakMapping();
-        public AfspraakLogica(IAfspraak afspraakData, IDetailer detailerData)
+        public AfspraakCollectie(IAfspraak afspraakData, IDetailer detailerData)
         {
             _afspraakData = afspraakData;
             _detailerData = detailerData;

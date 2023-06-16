@@ -11,12 +11,12 @@ using DomeinLaag.Models;
 
 namespace DomeinLaag.Logica
 {
-    public class DetailerLogica
+    public class DetailerCollectie
     {
         private IDetailer _data;
         private DetailerMapping _detailerMapping = new DetailerMapping();
         private AfspraakMapping _afspraakMapping = new AfspraakMapping();
-        public DetailerLogica(IDetailer data)
+        public DetailerCollectie(IDetailer data)
         {
             _data = data;
         }
