@@ -54,14 +54,6 @@ namespace DetailingBedrijf.Controllers
             return RedirectToAction("Index", "Dashboard");
         }
         
-        [HttpGet]
-        [Route("Auto/AutosVanEigenaarOpID/{eigenaarID:int}")]
-        public IActionResult AutosVanEigenaarOpID(int eigenaarID)
-        {
-            AutoEigenaarModel eigenaarEnAutos = _logica.HaalAutosOpVoorEigenaar(eigenaarID);
-            return View(eigenaarEnAutos);
-        }
-        
         private string HaalConnectionStringOp(IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("ConnectionString");
