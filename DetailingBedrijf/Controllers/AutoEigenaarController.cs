@@ -9,14 +9,14 @@ namespace DetailingBedrijf.Controllers
 {
     public class AutoEigenaarController : Controller
     {
-        private AutoEigenaarLogica _logica;
+        private AutoEigenaarCollectie _logica;
         private AutoEigenaarMapping _mapping = new AutoEigenaarMapping();
 
         public AutoEigenaarController(IConfiguration configuration)
         {
             IAutoEigenaar _autoEigenaarData = new AutoEigenaarDataToegang(configuration);
             IAuto _autoData = new AutoDataToegang(configuration);
-            AutoEigenaarLogica logica = new AutoEigenaarLogica(_autoEigenaarData, _autoData);
+            AutoEigenaarCollectie logica = new AutoEigenaarCollectie(_autoEigenaarData, _autoData);
             _logica = logica;
         }
         public IActionResult Index()
@@ -38,12 +38,16 @@ namespace DetailingBedrijf.Controllers
             _logica.Aanmaken(_mapping.MapModelNaarDTO(model));
             return RedirectToAction("Index", "Dashboard");
         }
-
+        
+        
+        //ToDo: Ophalen auto's en toevoegen aan eigenaar. 
         [HttpGet]
         [Route("AutoEigenaar/Details/{id}")]
         public IActionResult Details(int id)
         {
+            List<AutoModel> autos = _logica.HaalAutosOpVoorEigenaar(id);
             AutoEigenaarModel model = _logica.OphalenOpID(id);
+            model.AutosEigenaar = autos;
             return View(model);
         }
 
@@ -52,12 +56,6 @@ namespace DetailingBedrijf.Controllers
         {
             _logica.VerwijderenOpID(id);
             return RedirectToAction("Index", "Dashboard");
-        }
-        
-        private string HaalConnectionStringOp(IConfiguration configuration)
-        {
-            var connectionString = configuration.GetConnectionString("ConnectionString");
-            return connectionString;
         }
     }
 }

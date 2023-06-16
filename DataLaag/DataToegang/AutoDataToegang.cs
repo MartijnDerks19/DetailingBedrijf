@@ -53,7 +53,8 @@ namespace DataLaag.DataToegang
         public List<AutoDTO> AllesOphalenVoorEigenaar(int id)
         {
             List<AutoDTO> lijstVanAutos = new List<AutoDTO>();
-            string query = "SELECT dbi495061.auto.AutoID, dbi495061.auto.Merk, dbi495061.auto.Merk, dbi495061.auto.Bouwjaar, dbi495061.auto.EigenaarID FROM dbi495061.auto INNER JOIN dbi495061.eigenaar ON auto.EigenaarID = eigenaar.EigenaarID WHERE eigenaar.EigenaarID = @id";
+            string query = "SELECT dbi495061.auto.AutoID, dbi495061.auto.Merk, dbi495061.auto.Type, dbi495061.auto.Bouwjaar, dbi495061.auto.EigenaarID FROM " +
+                           "dbi495061.auto INNER JOIN dbi495061.eigenaar ON auto.EigenaarID = eigenaar.EigenaarID WHERE eigenaar.EigenaarID = @id";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))

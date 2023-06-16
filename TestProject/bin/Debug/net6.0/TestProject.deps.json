@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "TestProject/1.0.0": {
         "dependencies": {
-          "LogicaLaag": "1.0.0",
+          "DomeinLaag": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.5.0",
           "coverlet.collector": "3.2.0",
           "xunit": "2.4.2",
@@ -1021,9 +1021,9 @@
         }
       },
       "xunit.runner.visualstudio/2.4.5": {},
-      "LogicaLaag/1.0.0": {
+      "DomeinLaag/1.0.0": {
         "runtime": {
-          "LogicaLaag.dll": {}
+          "DomeinLaag.dll": {}
         }
       }
     }
@@ -1657,7 +1657,7 @@
       "path": "xunit.runner.visualstudio/2.4.5",
       "hashPath": "xunit.runner.visualstudio.2.4.5.nupkg.sha512"
     },
-    "LogicaLaag/1.0.0": {
+    "DomeinLaag/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

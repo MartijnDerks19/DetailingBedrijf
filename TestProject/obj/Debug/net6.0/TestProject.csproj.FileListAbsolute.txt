@@ -87,8 +87,6 @@ C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\zh-Ha
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\LogicaLaag.dll
-C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\LogicaLaag.pdb
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\TestProject.csproj.AssemblyReference.cache
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\TestProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\TestProject.AssemblyInfoInputs.cache
@@ -100,3 +98,5 @@ C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\refin
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\TestProject.pdb
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\TestProject.genruntimeconfig.cache
 C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\obj\Debug\net6.0\ref\TestProject.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\DomeinLaag.dll
+C:\Users\marti\RiderProjects\detailingbedrijf\TestProject\bin\Debug\net6.0\DomeinLaag.pdb

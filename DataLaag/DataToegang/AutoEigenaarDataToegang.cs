@@ -76,7 +76,7 @@ namespace DataLaag.DataToegang
 
         public void Aanmaken(AutoEigenaarDTO autoEigenaar)
         {
-            string query = "INSERT INTO eigenaar (Naam, Email) VALUES (@Naam, @Email)";
+            string query = "INSERT INTO dbi495061.eigenaar (Naam, Email) VALUES (@Naam, @Email)";
 
             using (MySqlConnection connection = new(_connectionString))
             {

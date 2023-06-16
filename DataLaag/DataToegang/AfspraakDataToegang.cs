@@ -22,7 +22,7 @@ namespace DataLaag.DataToegang
         public List<AfspraakDTO> AllesOphalen()
         {
             List<AfspraakDTO> lijstVanAfspraken = new List<AfspraakDTO>();
-            string query = "SELECT * FROM afspraak ORDER BY DatumEnTijd";
+            string query = "SELECT * FROM dbi495061.afspraak ORDER BY DatumEnTijd";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -49,7 +49,7 @@ namespace DataLaag.DataToegang
         public AfspraakDTO OphalenOpID(int id)
         {
             AfspraakDTO afspraak = new AfspraakDTO();
-            string query = "SELECT * FROM afspraak WHERE AfspraakID = @AfspraakID";
+            string query = "SELECT * FROM dbi495061.afspraak WHERE AfspraakID = @AfspraakID";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -72,7 +72,7 @@ namespace DataLaag.DataToegang
 
         public void Aanmaken(AfspraakDTO afspraak)
         {
-            string query = "INSERT INTO afspraak (DetailerID, AutoID, DatumEnTijd) VALUES (@DetailerID, @AutoID, @DatumEnTijd)";
+            string query = "INSERT INTO dbi495061.afspraak (DetailerID, AutoID, DatumEnTijd) VALUES (@DetailerID, @AutoID, @DatumEnTijd)";
 
             using (MySqlConnection connection = new(_connectionString))
             {
@@ -94,7 +94,7 @@ namespace DataLaag.DataToegang
             using (MySqlConnection connectie = new(_connectionString))
             {
                 connectie.Open();
-                using (MySqlCommand cmd = new("DELETE FROM afspraak WHERE AfspraakID = @AfspraakID", connectie))
+                using (MySqlCommand cmd = new("DELETE FROM dbi495061.afspraak WHERE AfspraakID = @AfspraakID", connectie))
                 {
                     cmd.Parameters.Add("@AfspraakID", MySqlDbType.Int64, 255).Value = id;
                     cmd.ExecuteNonQuery();
