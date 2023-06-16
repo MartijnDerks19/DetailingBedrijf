@@ -28,6 +28,27 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
+        @for (int i = 0; i < Model.AutosEigenaar.Count; i++)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.AutosEigenaar[i].Merk)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.AutosEigenaar[i].Merk)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.AutosEigenaar[i].Type)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.AutosEigenaar[i].Type)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.AutosEigenaar[i].Bouwjaar)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.AutosEigenaar[i].Bouwjaar)
+            </dd>
+        }
     </dl>
 </div>
 <div>

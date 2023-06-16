@@ -53,13 +53,13 @@ namespace DataLaag.DataToegang
         public List<AutoDTO> AllesOphalenVoorEigenaar(int id)
         {
             List<AutoDTO> lijstVanAutos = new List<AutoDTO>();
-            string query = "SELECT auto.AutoID,auto.Merk, auto.Type, auto.Bouwjaar, auto.EigenaarID FROM auto INNER JOIN eigenaar ON auto.EigenaarID = eigenaar.EigenaarID where EigenaarID = @ID";
+            string query = "SELECT dbi495061.auto.AutoID, dbi495061.auto.Merk, dbi495061.auto.Merk, dbi495061.auto.Bouwjaar, dbi495061.auto.EigenaarID FROM dbi495061.auto INNER JOIN dbi495061.eigenaar ON auto.EigenaarID = eigenaar.EigenaarID WHERE eigenaar.EigenaarID = @id";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
                     connection.Open();
-                    cmd.Parameters.Add("@ID", MySqlDbType.Int64, 255).Value = id;
+                    cmd.Parameters.Add("@id", MySqlDbType.Int64, 255).Value = id;
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

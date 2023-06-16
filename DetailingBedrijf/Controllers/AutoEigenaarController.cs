@@ -43,8 +43,10 @@ namespace DetailingBedrijf.Controllers
         [Route("AutoEigenaar/Details/{id}")]
         public IActionResult Details(int id)
         {
-            AutoEigenaarModel model = _collectie.OphalenOpID(id);
-            return View(model);
+            AutoEigenaarModel eigenaar = _collectie.OphalenOpID(id);
+            List<AutoModel> autos = _collectie.HaalAutosOpVoorEigenaar(id);
+            eigenaar.AutosEigenaar = autos;
+            return View(eigenaar);
         }
 
         [Route("AutoEigenaar/Verwijderen/{id}")]
@@ -53,15 +55,7 @@ namespace DetailingBedrijf.Controllers
             _collectie.VerwijderenOpID(id);
             return RedirectToAction("Index", "Dashboard");
         }
-        
-        [HttpGet]
-        [Route("Auto/AutosVanEigenaarOpID/{eigenaarID:int}")]
-        public IActionResult AutosVanEigenaarOpID(int eigenaarID)
-        {
-            AutoEigenaarModel eigenaarEnAutos = _collectie.HaalAutosOpVoorEigenaar(eigenaarID);
-            return View(eigenaarEnAutos);
-        }
-        
+
         private string HaalConnectionStringOp(IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("ConnectionString");

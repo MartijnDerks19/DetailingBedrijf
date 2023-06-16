@@ -55,10 +55,9 @@ namespace DataLaag.DataToegang
         public AutoEigenaarDTO OphalenOpID(int id)
         {
             AutoEigenaarDTO autoEigenaar = new AutoEigenaarDTO();
-            string query = "SELECT * FROM eigenaar WHERE EigenaarID = @EigenaarID";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM dbi495061.eigenaar WHERE dbi495061.eigenaar.EigenaarID = @EigenaarID", connection))
                 {
                     connection.Open();
                     cmd.Parameters.Add("@EigenaarID", MySqlDbType.Int64, 255).Value = id;

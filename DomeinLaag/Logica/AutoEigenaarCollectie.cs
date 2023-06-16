@@ -49,13 +49,10 @@ namespace DomeinLaag.Logica
             _eigenaarData.VerwijderenOpID(id);
         }
         
-        public AutoEigenaarModel HaalAutosOpVoorEigenaar(int eigenaarID)
+        public List<AutoModel> HaalAutosOpVoorEigenaar(int eigenaarID)
         {
-            AutoEigenaarDTO dto = _eigenaarData.OphalenOpID(eigenaarID);
-            AutoEigenaarModel model = _eigenaarMapping.MapDTONaarModel(dto);
-            List<AutoDTO> autos = _autoData.AllesOphalenVoorEigenaar(eigenaarID);
-            model.AutosEigenaar = _autoMapping.MapDTOLijstNaarModelLijst(autos);
-            return model;
+            List<AutoModel> autos = _autoMapping.MapDTOLijstNaarModelLijst(_autoData.AllesOphalenVoorEigenaar(eigenaarID));
+            return autos;
         }
     }
 }
