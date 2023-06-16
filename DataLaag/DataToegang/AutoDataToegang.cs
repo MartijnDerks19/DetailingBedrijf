@@ -2,19 +2,14 @@
 using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
     public class AutoDataToegang : IAuto
     {
-        private string _connectionString;
-        private IConfiguration _configuration;
-
+        private readonly string _connectionString;
+        private readonly IConfiguration _configuration;
+        
         public AutoDataToegang(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -25,7 +20,7 @@ namespace DataLaag.DataToegang
         public List<AutoDTO> AllesOphalen()
         {
             List<AutoDTO> lijstVanAutos = new List<AutoDTO>();
-            string query = "SELECT * FROM auto ORDER BY Merk";
+            string query = "SELECT * FROM dbi495061.auto ORDER BY Merk";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -83,7 +78,7 @@ namespace DataLaag.DataToegang
         public AutoDTO OphalenOpID(int id)
         {
             AutoDTO auto = new AutoDTO();
-            string query = "SELECT * FROM auto WHERE AutoID = @AutoID";
+            string query = "SELECT * FROM dbi495061.auto WHERE AutoID = @AutoID";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -107,7 +102,7 @@ namespace DataLaag.DataToegang
 
         public void Aanmaken(AutoDTO auto)
         {
-            string query = "INSERT INTO auto (Merk, Type, Bouwjaar, EigenaarID) VALUES (@Merk, @Type, @Bouwjaar, @EigenaarID)";
+            string query = "INSERT INTO dbi495061.auto (Merk, Type, Bouwjaar, EigenaarID) VALUES (@Merk, @Type, @Bouwjaar, @EigenaarID)";
 
             using (MySqlConnection connection = new(_connectionString))
             {
@@ -129,7 +124,7 @@ namespace DataLaag.DataToegang
             using (MySqlConnection connectie = new(_connectionString))
             {
                 connectie.Open();
-                using (MySqlCommand cmd = new("DELETE FROM auto WHERE AutoID = @AutoID", connectie))
+                using (MySqlCommand cmd = new("DELETE FROM dbi495061.auto WHERE AutoID = @AutoID", connectie))
                 {
                     cmd.Parameters.Add("@AutoID", MySqlDbType.Int32, 255).Value = id;
                     cmd.ExecuteNonQuery();
