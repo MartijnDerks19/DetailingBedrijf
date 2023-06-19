@@ -19,6 +19,7 @@ namespace DetailingBedrijf.Controllers
             AutoCollectie collectie = new AutoCollectie(_autoData);
             _collectie = collectie;
         }
+
         public IActionResult Index()
         {
             List<AutoModel> models = _collectie.HaalAllesOp();
@@ -54,10 +55,21 @@ namespace DetailingBedrijf.Controllers
             return RedirectToAction("Index", "Dashboard");
         }
 
-        private string HaalConnectionStringOp(IConfiguration configuration)
+        [HttpGet]
+        public IActionResult AanpassenOpID()
         {
-            var connectionString = configuration.GetConnectionString("ConnectionString");
-            return connectionString;
+            AutoModel model = new();
+            return View(model);
         }
+        
+        [HttpPost]
+        [Route("Detailer/AanpassenOpID/{id}")]
+        public IActionResult AanpassenOpID(AutoModel model, int id)
+        {
+            _collectie.Aanpassen(id, model);
+            return RedirectToAction("Index", "Dashboard");
+        }
+        
+        
     }
 }

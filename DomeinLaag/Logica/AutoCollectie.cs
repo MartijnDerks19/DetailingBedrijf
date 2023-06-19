@@ -39,5 +39,10 @@ namespace DomeinLaag.Logica
         {
             _data.VerwijderenOpID(id);
         }
+
+        public void Aanpassen(int id, AutoModel model)
+        {
+            _data.AanpassenOpID(id, _mapping.MapModelNaarDTO(model));
+        }
     }
 }

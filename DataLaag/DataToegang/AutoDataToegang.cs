@@ -133,9 +133,23 @@ namespace DataLaag.DataToegang
             }
         }
 
-        public void AanpassenOpID(int id, AutoDTO entiteit)
+        public void AanpassenOpID(int id, AutoDTO auto)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE dbi495061.auto (Merk, Type, Bouwjaar) VALUES (@Merk, @Type, @Bouwjaar) WHERE EigenaarID = @EigenaarID";
+
+            using (MySqlConnection connection = new(_connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.Add("@Merk", MySqlDbType.String, 255).Value = auto.Merk;
+                    cmd.Parameters.Add("@Type", MySqlDbType.String, 255).Value = auto.Type;
+                    cmd.Parameters.Add("@Bouwjaar", MySqlDbType.Int32, 255).Value = auto.Bouwjaar;
+                    cmd.Parameters.Add("@EigenaarID", MySqlDbType.Int32, 255).Value = id;
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
         }
     }
 }
