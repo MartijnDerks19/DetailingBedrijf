@@ -26,7 +26,7 @@ namespace TestProject.MockDataToegang
 
         public List<AfspraakDTO> AfsprakenOphalenOpID(int detailerID)
         {
-            throw new NotImplementedException();
+            return new List<AfspraakDTO>();
         }
 
         public DetailerDTO OphalenOpID(int id)
@@ -49,14 +49,14 @@ namespace TestProject.MockDataToegang
             VerwijderID = id;
         }
 
-        public void AanpassenOpID(int id, DetailerDTO entiteit)
+        public void AanpassenOpID(int id, DetailerDTO dto)
         {
-            throw new NotImplementedException();
+            DTO = dto;
         }
 
         public List<AfspraakDTO> AllesOphalenVoorDetailer(int detailerID)
         {
-            throw new NotImplementedException();
+            return new List<AfspraakDTO>();
         }
     }
 }

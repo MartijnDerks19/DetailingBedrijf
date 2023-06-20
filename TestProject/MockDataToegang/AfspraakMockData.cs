@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using DomeinLaag.DTOs;
 using DomeinLaag.Interfaces;
 
@@ -21,17 +22,19 @@ namespace TestProject.MockDataToegang
 
         public void AanpassenOpID(int id, AfspraakDTO dto)
         {
-            throw new NotImplementedException();
+            DTO = dto;
         }
 
         public List<AfspraakDTO> AllesOphalen()
         {
-            throw new NotImplementedException();
+            return new List<AfspraakDTO>();
         }
 
         public AfspraakDTO OphalenOpID(int id)
         {
-            throw new NotImplementedException();
+            AfspraakDTO dto = new AfspraakDTO();
+            dto.AfspraakID = id;
+            return dto;
         }
 
         public void VerwijderenOpID(int id)

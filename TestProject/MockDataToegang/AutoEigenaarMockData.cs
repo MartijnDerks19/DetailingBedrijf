@@ -19,22 +19,24 @@ namespace TestProject.MockDataToegang
 
         public void AanpassenOpID(int id, AutoEigenaarDTO dto)
         {
-            throw new NotImplementedException();
+            DTO = dto;
         }
 
         public List<AutoEigenaarDTO> AllesOphalen()
         {
-            throw new NotImplementedException();
+            return new List<AutoEigenaarDTO>();
         }
 
         public List<AutoDTO> AutosOphalenOpID(int eigenaarID)
         {
-            throw new NotImplementedException();
+            return new List<AutoDTO>();
         }
 
         public AutoEigenaarDTO OphalenOpID(int id)
         {
-            throw new NotImplementedException();
+            AutoEigenaarDTO dto = new AutoEigenaarDTO();
+            dto.EigenaarID = id;
+            return dto;
         }
 
         public void VerwijderenOpID(int id)
