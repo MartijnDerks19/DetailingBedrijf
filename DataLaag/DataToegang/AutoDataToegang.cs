@@ -90,9 +90,9 @@ namespace DataLaag.DataToegang
                     {
                         auto.AutoID = reader.GetInt32(0);
                         auto.Merk = reader.GetString(1);
-                        auto.Type = reader.GetString(1);
-                        auto.Bouwjaar = reader.GetInt32(1);
-                        auto.EigenaarID = reader.GetInt32(1);
+                        auto.Type = reader.GetString(2);
+                        auto.Bouwjaar = reader.GetInt32(3);
+                        auto.EigenaarID = reader.GetInt32(4);
                     }
                 }
                 connection.Close();
@@ -135,7 +135,7 @@ namespace DataLaag.DataToegang
 
         public void AanpassenOpID(int id, AutoDTO auto)
         {
-            string query = "UPDATE dbi495061.auto (Merk, Type, Bouwjaar) VALUES (@Merk, @Type, @Bouwjaar) WHERE EigenaarID = @EigenaarID";
+            string query = "UPDATE dbi495061.auto SET Merk = @Merk, Type = @Type, Bouwjaar = @Bouwjaar, EigenaarID = @EigenaarID WHERE AutoID = @AutoID";
 
             using (MySqlConnection connection = new(_connectionString))
             {
@@ -144,8 +144,9 @@ namespace DataLaag.DataToegang
                 {
                     cmd.Parameters.Add("@Merk", MySqlDbType.String, 255).Value = auto.Merk;
                     cmd.Parameters.Add("@Type", MySqlDbType.String, 255).Value = auto.Type;
-                    cmd.Parameters.Add("@Bouwjaar", MySqlDbType.Int32, 255).Value = auto.Bouwjaar;
-                    cmd.Parameters.Add("@EigenaarID", MySqlDbType.Int32, 255).Value = id;
+                    cmd.Parameters.Add("@Bouwjaar", MySqlDbType.Int64, 255).Value = auto.Bouwjaar;
+                    cmd.Parameters.Add("@EigenaarID", MySqlDbType.Int64, 255).Value = auto.EigenaarID;
+                    cmd.Parameters.Add("@AutoID", MySqlDbType.Int64, 255).Value = id;
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();

@@ -36,7 +36,7 @@ namespace DomeinLaag.Logica
         public DetailerModel AfsprakenOphalenOpID(int id)
         {
             DetailerModel detailer = _detailerMapping.MapDTONaarModel(_data.OphalenOpID(id));
-            List<AfspraakModel> afspraken = _afspraakMapping.MapDTOLijstNaarModelLijst(_data.AfsprakenOphalenOpID(id));
+            List<AfspraakModel> afspraken = _afspraakMapping.MapDTOLijstNaarModelLijst(_data.AllesOphalenVoorDetailer(id));
             detailer.AfsprakenDetailer = afspraken;
             return detailer;
         }

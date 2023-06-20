@@ -42,7 +42,13 @@ namespace DomeinLaag.Logica
 
         public void Aanpassen(int id, AutoModel model)
         {
-            _data.AanpassenOpID(id, _mapping.MapModelNaarDTO(model));
+            AutoDTO oudeDto = _data.OphalenOpID(id);
+            AutoDTO dto = _mapping.MapModelNaarDTO(model);
+
+            dto.AutoID = oudeDto.AutoID;
+            dto.EigenaarID = oudeDto.EigenaarID;
+
+            _data.AanpassenOpID(id, dto);
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\TestProject\\TestProject.csproj": {}
+    "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj": {
+    "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj",
         "projectName": "DomeinLaag",
-        "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
+        "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\obj\\",
+        "outputPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\TestProject\\TestProject.csproj": {
+    "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\TestProject\\TestProject.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\TestProject\\TestProject.csproj",
+        "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\TestProject\\TestProject.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +89,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj": {
-                "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj"
+              "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj": {
+                "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj"
               }
             }
           }

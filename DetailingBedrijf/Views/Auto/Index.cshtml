@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.EigenaarID)
             </td>
             <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.AutoID }) |*@
+                @Html.ActionLink("Aanpassen", "AanpassenOpID", new { id = item.AutoID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.AutoID  }) |
-                @Html.ActionLink("Verwijderen", "Verwijderen", new { id = item.AutoID  })
+                @Html.ActionLink("Verwijderen", "Verwijderen", "Auto", new { id = item.AutoID  })
             </td>
         </tr>
 }

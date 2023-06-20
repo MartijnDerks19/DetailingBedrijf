@@ -37,7 +37,7 @@ namespace DetailingBedrijf.Controllers
         public IActionResult Aanmaken(AutoModel model)
         {
             _collectie.Aanmaken(_mapping.MapModelNaarDTO(model));
-            return RedirectToAction("Index", "Dashboard");
+            return RedirectToAction("Index", "Auto");
         }
 
         [HttpGet]
@@ -48,11 +48,11 @@ namespace DetailingBedrijf.Controllers
             return View(model);
         }
 
-        [Route("Detailer/Verwijderen/{id}")]
+        [Route("Auto/Verwijderen/{id}")]
         public IActionResult Verwijderen(int id)
         {
             _collectie.Verwijderen(id);
-            return RedirectToAction("Index", "Dashboard");
+            return RedirectToAction("Index", "Auto");
         }
 
         [HttpGet]
@@ -63,11 +63,11 @@ namespace DetailingBedrijf.Controllers
         }
         
         [HttpPost]
-        [Route("Detailer/AanpassenOpID/{id}")]
+        [Route("Auto/AanpassenOpID/{id:int}")]
         public IActionResult AanpassenOpID(AutoModel model, int id)
         {
             _collectie.Aanpassen(id, model);
-            return RedirectToAction("Index", "Dashboard");
+            return RedirectToAction("Index", "Auto");
         }
         
         

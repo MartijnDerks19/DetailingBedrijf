@@ -14,7 +14,7 @@ namespace DomeinLaag.Interfaces
         void AanpassenOpID(int id, DetailerDTO dto);
         DetailerDTO OphalenOpID(int id);
         List<DetailerDTO> AllesOphalen();
-        List<AfspraakDTO> AfsprakenOphalenOpID(int detailerID);
+        List<AfspraakDTO> AllesOphalenVoorDetailer(int detailerID);
     }
 }
 

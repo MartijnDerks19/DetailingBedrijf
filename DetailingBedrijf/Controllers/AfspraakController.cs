@@ -45,6 +45,20 @@ namespace DetailingBedrijf.Controllers
         }
 
         [HttpGet]
+        public IActionResult Aanpassen()
+        {
+            return View(new AfspraakModel());
+        }
+
+        [HttpPost]
+        [Route("Afspraak/Aanpassen/{id:int}")]
+        public IActionResult Aanpassen(int id, AfspraakModel model)
+        {
+            _collectie.AanpassenOpID(id, model);
+            return RedirectToAction("Index", "Dashboard");
+        }
+
+        [HttpGet]
         [Route("Afspraak/Details/{id:int}")]
         public IActionResult Details(int id)
         {
@@ -74,18 +88,6 @@ namespace DetailingBedrijf.Controllers
             return View(new AfspraakModel());
         }
 
-
-        //Oude methode
-        //[HttpPost]
-        //[Route("Afspraak/AanmakenVoorDetailer/{detailerID}")]
-        //public IActionResult AanmakenVoorDetailer(int detailerID, AfspraakModel model)
-        //{
-        //    model.DetailerID = detailerID;
-        //    _logica.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
-        //    return RedirectToAction("Index", "Dashboard");
-        //}
-
-        //Nieuwe methode
         [HttpPost]
         [Route("Afspraak/AanmakenVoorDetailer/{detailerID:int}")]
         public IActionResult AanmakenVoorDetailer(int detailerID, AfspraakModel model)
@@ -103,12 +105,5 @@ namespace DetailingBedrijf.Controllers
                 //DataAnnotations
             }
         }
-
-        private string HaalConnectionStringOp(IConfiguration configuration)
-        {
-            var connectionString = configuration.GetConnectionString("ConnectionString");
-            return connectionString;
-        }
-
     }
 }

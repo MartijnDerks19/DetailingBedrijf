@@ -554,6 +554,9 @@
       "DomeinLaag/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MySql.Data": "8.0.33"
+        },
         "compile": {
           "bin/placeholder/DomeinLaag.dll": {}
         },
@@ -1824,11 +1827,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DataLaag\\DataLaag.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DataLaag\\DataLaag.csproj",
       "projectName": "DataLaag",
-      "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DataLaag\\DataLaag.csproj",
+      "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DataLaag\\DataLaag.csproj",
       "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DataLaag\\obj\\",
+      "outputPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DataLaag\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1845,8 +1848,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj": {
-              "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj"
+            "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj": {
+              "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj"
             }
           }
         }

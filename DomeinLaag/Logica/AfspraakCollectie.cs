@@ -5,11 +5,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using DomeinLaag.DTOs;
 using DomeinLaag.Exceptions;
 using DomeinLaag.Interfaces;
 using DomeinLaag.Mapping;
 using DomeinLaag.Models;
+using MySql.Data.Types;
 
 namespace DomeinLaag.Logica
 {
@@ -45,7 +47,7 @@ namespace DomeinLaag.Logica
         /// <exception cref="DeZaakIsGeslotenException"></exception>
         public void ProbeerAanmaken(AfspraakDTO dto)
         {
-            List<AfspraakDTO> afspraken = _detailerData.AfsprakenOphalenOpID(dto.DetailerID);
+            List<AfspraakDTO> afspraken = _detailerData.AllesOphalenVoorDetailer(dto.DetailerID);
             if (IsDagVolGepland(afspraken, dto))
             {
                 throw new DagIsVolGeplandException("Datum is vol probeer een andere dag"); //Catch exception in ui 
@@ -64,8 +66,20 @@ namespace DomeinLaag.Logica
 
         public List<AfspraakModel> HaalOpVoorDetailer(int detailerID)
         {
-           List<AfspraakModel> afspraken = _mapping.MapDTOLijstNaarModelLijst(_detailerData.AfsprakenOphalenOpID(detailerID));
+           List<AfspraakModel> afspraken = _mapping.MapDTOLijstNaarModelLijst(_detailerData.AllesOphalenVoorDetailer(detailerID));
             return afspraken;
+        }
+
+        public void AanpassenOpID(int id, AfspraakModel model)
+        {
+            AfspraakDTO oudeDto = _afspraakData.OphalenOpID(id);
+            AfspraakDTO dto = _mapping.MapModelNaarDTO(model);
+
+            dto.AutoID = oudeDto.AutoID;
+            dto.DetailerID = oudeDto.DetailerID;
+            dto.AfspraakID = oudeDto.AfspraakID;
+
+            _afspraakData.AanpassenOpID(id, dto);
         }
 
         private bool DeZaakIsGesloten(AfspraakDTO dto)

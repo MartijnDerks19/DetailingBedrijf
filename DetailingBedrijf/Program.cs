@@ -32,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=AutoEigenaar}/{action=Index}/{id?}");
+    pattern: "{controller=Auto}/{action=Index}/{id?}");
 
 app.Run();

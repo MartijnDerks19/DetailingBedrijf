@@ -48,11 +48,5 @@ namespace DetailingBedrijf.Controllers
         {
             return RedirectToAction("Aanmaken", "Afspraak", detailerID);
         }
-        
-        private string HaalConnectionStringOp(IConfiguration configuration)
-        {
-            var connectionString = configuration.GetConnectionString("ConnectionString");
-            return connectionString;
-        }
     }
 }

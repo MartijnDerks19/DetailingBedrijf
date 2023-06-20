@@ -45,7 +45,9 @@
             <td>
                 @*@Html.ActionLink("Detailer", "Ophalen", new { id = item.AfspraakID }) |*@
                 @Html.ActionLink("Details", "Details", new { id = item.AfspraakID }) |
-                @Html.ActionLink("Delete", "Verwijderen", new { id = item.AfspraakID })
+                @Html.ActionLink("Verwijderen", "Verwijderen", new { id = item.AfspraakID }) |
+                @Html.ActionLink("Aanpassen", "Aanpassen", new { id = item.AfspraakID }) |
+
             </td>
         </tr>
 }

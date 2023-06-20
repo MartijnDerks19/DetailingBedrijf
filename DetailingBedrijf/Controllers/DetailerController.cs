@@ -62,11 +62,5 @@ namespace DetailingBedrijf.Controllers
             DetailerModel model = _collectie.AfsprakenOphalenOpID(detailerID);
             return View(model.AfsprakenDetailer);
         }
-
-        private string HaalConnectionStringOp(IConfiguration configuration)
-        {
-            var connectionString = configuration.GetConnectionString("ConnectionString");
-            return connectionString;
-        }
     }
 }

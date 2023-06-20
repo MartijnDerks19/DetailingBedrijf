@@ -46,11 +46,6 @@ namespace DataLaag.DataToegang
             return lijstVanDetailers;
         }
 
-        public List<AfspraakDTO> AfsprakenOphalenOpID(int detailerID)
-        {
-            throw new NotImplementedException();
-        }
-
         public DetailerDTO OphalenOpID(int id)
         {
             DetailerDTO detailer = new DetailerDTO();
@@ -131,9 +126,21 @@ namespace DataLaag.DataToegang
             }
         }
 
-        public void AanpassenOpID(int id, DetailerDTO entiteit)
+        public void AanpassenOpID(int id, DetailerDTO detailer)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE dbi495061.detailer (Naam) VALUES (@Naam) WHERE DetailerID = @DetailerID";
+
+            using (MySqlConnection connection = new(_connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.Add("@Naam", MySqlDbType.String, 255).Value = detailer.Naam;
+                    cmd.Parameters.Add("@DetailerID", MySqlDbType.Int32, 255).Value = id;
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using DomeinLaag.DTOs;
 using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 
 namespace DataLaag.DataToegang 
 {
@@ -103,9 +104,23 @@ namespace DataLaag.DataToegang
             }
         }
 
-        public void AanpassenOpID(int id, AfspraakDTO entiteit)
+        public void AanpassenOpID(int id, AfspraakDTO afspraak)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE dbi495061.afspraak SET (DetailerID, AutoID, DatumEnTijd) VALUES (@DetailerID, @AutoID, @DatumEnTijd) WHERE AfspraakID = @AfspraakID";
+
+            using (MySqlConnection connection = new(_connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.Add("@DetailerID", MySqlDbType.Int32, 255).Value = afspraak.DetailerID;
+                    cmd.Parameters.Add("@AutoID", MySqlDbType.String, 255).Value = afspraak.AutoID;
+                    cmd.Parameters.Add("@DatumEnTijd", MySqlDbType.DateTime, 255).Value = afspraak.DatumEnTijd;
+                    cmd.Parameters.Add("@AfspraakID", MySqlDbType.Int32, 255).Value = id;
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
         }
 
         public List<AutoDTO> AutosOphalenVoorEigenaar(int eigenaarID)
