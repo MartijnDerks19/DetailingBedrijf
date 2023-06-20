@@ -13,6 +13,7 @@ namespace TestProject.MockDataToegang
     {
         public DetailerDTO DTO { get; set; }
         public int VerwijderID { get; set; }
+
         public DetailerMockData()
         {
 
@@ -49,6 +50,11 @@ namespace TestProject.MockDataToegang
         }
 
         public void AanpassenOpID(int id, DetailerDTO entiteit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AfspraakDTO> AllesOphalenVoorDetailer(int detailerID)
         {
             throw new NotImplementedException();
         }

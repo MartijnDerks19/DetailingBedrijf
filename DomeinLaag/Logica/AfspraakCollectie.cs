@@ -50,7 +50,7 @@ namespace DomeinLaag.Logica
             List<AfspraakDTO> afspraken = _detailerData.AllesOphalenVoorDetailer(dto.DetailerID);
             if (IsDagVolGepland(afspraken, dto))
             {
-                throw new DagIsVolGeplandException("Datum is vol probeer een andere dag"); //Catch exception in ui 
+                throw new DagIsVolGeplandException("Datum is vol probeer een andere dag");
             }
             else if (DeZaakIsGesloten(dto))
             {

@@ -2,7 +2,7 @@
 using DomeinLaag.Logica;
 using TestProject.MockDataToegang;
 
-namespace TestProject.DetailerTesten
+namespace TestProject.Testen
 {
     public class DetailerTesten
     {
