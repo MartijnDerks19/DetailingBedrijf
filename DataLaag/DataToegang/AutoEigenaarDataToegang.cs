@@ -2,12 +2,6 @@
 using DomeinLaag.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLaag.DataToegang
 {
@@ -24,7 +18,7 @@ namespace DataLaag.DataToegang
         public List<AutoEigenaarDTO> AllesOphalen()
         {
             List<AutoEigenaarDTO> lijstVanAutoEigenaren = new List<AutoEigenaarDTO>();
-            string query = "SELECT * FROM eigenaar ORDER BY Naam";
+            string query = "SELECT * FROM dbi495061.eigenaar ORDER BY Naam";
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))

@@ -10069,11 +10069,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DetailingBedrijf\\DetailingBedrijf.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DetailingBedrijf\\DetailingBedrijf.csproj",
       "projectName": "DetailingBedrijf",
-      "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DetailingBedrijf\\DetailingBedrijf.csproj",
+      "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DetailingBedrijf\\DetailingBedrijf.csproj",
       "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DetailingBedrijf\\obj\\",
+      "outputPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DetailingBedrijf\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10090,11 +10090,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DataLaag\\DataLaag.csproj": {
-              "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DataLaag\\DataLaag.csproj"
+            "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DataLaag\\DataLaag.csproj": {
+              "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DataLaag\\DataLaag.csproj"
             },
-            "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj": {
-              "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj"
+            "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj": {
+              "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj"
             }
           }
         }

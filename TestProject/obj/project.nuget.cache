@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gZjQs/zdbChiYueCis+553JGxNVl34/LA5pT4VrUukhTW+DDl/solG/CjWoGAD3oxUNYrC4dD2t0oAqo0ReypA==",
+  "dgSpecHash": "Eml1M2fcFozCidG2aEXw2gAOf7RQLjDyQct5eMxqG5u2DhMRMFLvGzVQGYcf+ui+DbPQFiDnRZy6qC8XrVZAlQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\TestProject\\TestProject.csproj",
+  "projectFilePath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\TestProject\\TestProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

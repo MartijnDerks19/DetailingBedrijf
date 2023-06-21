@@ -9,117 +9,117 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DetailingBedrijf
 build_property.RootNamespace = DetailingBedrijf
-build_property.ProjectDir = C:\Users\marti\source\repos\Detailing bedrijf\DetailingBedrijf\
+build_property.ProjectDir = C:\Users\marti\RiderProjects\detailingbedrijf\DetailingBedrijf\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\marti\source\repos\Detailing bedrijf\DetailingBedrijf
+build_property.MSBuildProjectDirectory = C:\Users\marti\RiderProjects\detailingbedrijf\DetailingBedrijf
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/Aanmaken.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/Aanmaken.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcQWFubWFrZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/AanmakenVoorDetailer.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/AanmakenVoorDetailer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcQWFubWFrZW5Wb29yRGV0YWlsZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/Aanpassen.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/Aanpassen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcQWFucGFzc2VuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/Details.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/Index.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/OphalenVoorDetailer.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/OphalenVoorDetailer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcT3BoYWxlblZvb3JEZXRhaWxlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Afspraak/Verwijderen.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Afspraak/Verwijderen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZzcHJhYWtcVmVyd2lqZGVyZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/AutoEigenaar/Aanmaken.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/AutoEigenaar/Aanmaken.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b0VpZ2VuYWFyXEFhbm1ha2VuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/AutoEigenaar/Details.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/AutoEigenaar/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b0VpZ2VuYWFyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/AutoEigenaar/Index.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/AutoEigenaar/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b0VpZ2VuYWFyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/AutoEigenaar/Verwijderen.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/AutoEigenaar/Verwijderen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b0VpZ2VuYWFyXFZlcndpamRlcmVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Auto/Aanmaken.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Auto/Aanmaken.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b1xBYW5tYWtlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Auto/AanpassenOpID.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Auto/AanpassenOpID.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b1xBYW5wYXNzZW5PcElELmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Auto/AutosVanEigenaarOpID.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Auto/AutosVanEigenaarOpID.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b1xBdXRvc1ZhbkVpZ2VuYWFyT3BJRC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Auto/Details.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Auto/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Auto/Index.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Auto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Auto/Verwijderen.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Auto/Verwijderen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b1xWZXJ3aWpkZXJlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Dashboard/Index.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Detailer/Aanmaken.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Detailer/Aanmaken.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsZXJcQWFubWFrZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Detailer/Details.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Detailer/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Detailer/Index.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Detailer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Detailer/OphalenVoorDetailer.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Detailer/OphalenVoorDetailer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsZXJcT3BoYWxlblZvb3JEZXRhaWxlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Shared/Error.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/_ViewImports.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/_ViewStart.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marti/source/repos/Detailing bedrijf/DetailingBedrijf/Views/Shared/_Layout.cshtml]
+[C:/Users/marti/RiderProjects/detailingbedrijf/DetailingBedrijf/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1wr1bbmxq4

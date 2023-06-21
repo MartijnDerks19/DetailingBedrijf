@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using DomeinLaag.DTOs;
+﻿using DomeinLaag.DTOs;
 using DomeinLaag.Exceptions;
 using DomeinLaag.Interfaces;
 using DomeinLaag.Mapping;
 using DomeinLaag.Models;
-using MySql.Data.Types;
 
 namespace DomeinLaag.Logica
 {
@@ -45,7 +36,7 @@ namespace DomeinLaag.Logica
         /// <param name="dto"></param>
         /// <exception cref="DagIsVolGeplandException"></exception>
         /// <exception cref="DeZaakIsGeslotenException"></exception>
-        public void ProbeerAanmaken(AfspraakDTO dto)
+        public void Aanmaken(AfspraakDTO dto)
         {
             List<AfspraakDTO> afspraken = _detailerData.AllesOphalenVoorDetailer(dto.DetailerID);
             if (IsDagVolGepland(afspraken, dto))
@@ -54,7 +45,7 @@ namespace DomeinLaag.Logica
             }
             else if (DeZaakIsGesloten(dto))
             {
-                throw new DeZaakIsGeslotenException("Wij zijn helaas gesloten op maandag probeer een andere dag. ");
+                throw new DeZaakIsGeslotenException("Wij zijn helaas gesloten op maandag probeer een andere dag.");
             }
             _afspraakData.Aanmaken(dto);
         }

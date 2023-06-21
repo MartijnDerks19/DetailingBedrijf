@@ -40,7 +40,7 @@ namespace DetailingBedrijf.Controllers
         [HttpPost]
         public IActionResult Aanmaken(AfspraakModel model)
         {
-            _collectie.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+            _collectie.Aanmaken(_mapping.MapModelNaarDTO(model));
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -95,7 +95,7 @@ namespace DetailingBedrijf.Controllers
             try
             {
                 model.DetailerID = detailerID;
-                _collectie.ProbeerAanmaken(_mapping.MapModelNaarDTO(model));
+                _collectie.Aanmaken(_mapping.MapModelNaarDTO(model));
                 return RedirectToAction("Index", "Dashboard");
             }
             catch (Exception divge)

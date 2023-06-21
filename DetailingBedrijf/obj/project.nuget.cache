@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JiyQNJQLA3WS36pGB3pyX/DeHNOxpZggfVQHOA+8JLOjUzSAjXZeX6E4RuTdXJWJZWfb/8T4Xf0v5qUTnEeUvQ==",
+  "dgSpecHash": "brUxzOhUyuST2OQcsUEE2PpXZTwszNcnwUYS9HNiW7TnWdFydj1DSOKGjPQECF4eUkofuyjGWi5NRokn8Q18vA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DetailingBedrijf\\DetailingBedrijf.csproj",
+  "projectFilePath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DetailingBedrijf\\DetailingBedrijf.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

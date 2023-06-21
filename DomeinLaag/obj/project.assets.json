@@ -1715,11 +1715,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
       "projectName": "DomeinLaag",
-      "projectPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\DomeinLaag.csproj",
+      "projectPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\DomeinLaag.csproj",
       "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marti\\source\\repos\\Detailing bedrijf\\DomeinLaag\\obj\\",
+      "outputPath": "C:\\Users\\marti\\RiderProjects\\detailingbedrijf\\DomeinLaag\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
